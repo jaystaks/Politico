@@ -1,0 +1,369 @@
+body{
+	margin: 0;
+	padding: 0;
+	color: white;
+	font-family: Arial;
+	font-size: 12px;
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	right: -1px;
+	bottom: -1px;
+	width: auto;
+	height: auto;
+    background: lightgray;
+    
+	background-size: cover;
+	/*-webkit-filter: blur(5px);*/
+	z-index: 0;
+}
+
+.header{
+	position: absolute;
+	top: calc(50% - 35px);
+	left: calc(45% - 255px);
+	z-index: 2;
+}
+
+.header div{
+	float: left;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 35px;
+	font-weight: 200;
+}
+
+.header div span{
+	color: red !important;
+}
+
+.message-pane {
+    position: absolute;
+	margin-top: 45px;
+	margin-left: 45px;
+    float: left;
+    font-size: 12px;
+    /*font-weight: bolder;*/
+	color: orangered;
+	background: transparent;
+}
+
+.login{
+	position: absolute;
+	top: calc(50% - 75px);
+	left: calc(50% - 50px);
+	height: 150px;
+	width: 300px;
+	padding: 10px;
+	z-index: 2;
+}
+
+.login input {
+	width: 200px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #000;
+	font-family: 'Exo', sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	padding-left: 15px;
+    margin-top: 5px;
+}
+
+.login input[type=search] {
+	width: 130px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #000;
+	font-family: 'Exo', sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	padding-left: 15px;
+    margin-top: 5px;
+}
+
+.login input[type=submit]{
+	width: 200px;
+	height: 35px;
+	background: #fff;
+	border: 1px solid #fff;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #a18d6c;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 6px;
+	margin-top: 10px;
+}
+
+.login input[type=submit]:hover{
+	opacity: 0.8;
+}
+
+.login input[type=submit]:active{
+	opacity: 0.6;
+}
+
+.login input:focus{
+	outline: none;
+	border: 2px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=submit]:focus{
+	outline: none;
+}
+
+::-webkit-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+
+::-moz-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;            
+}
+footer img{
+    margin-right: 25px;
+    float: right;
+}
+
+/*
+ * All the elements from the clientView
+*/
+
+.topBar {
+    height: 30px;
+    width: 100%;
+    background: transparent;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.button {
+    height: 40px;
+    color: azure;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 0 1em;
+    line-height: 40px;
+    cursor: pointer;
+    transition: background-color 0.16s linear;
+}
+
+.button:hover {
+    background: rgba(0,0,0,0.3);
+}
+
+#userLabel {
+    margin-right: auto;
+}
+
+.results{
+	position: absolute;
+	top: calc(50% - 75px);
+	left: calc(10% - 50px);
+	height: 200px;
+	width: 550px;
+	padding: 10px;
+	margin-left: 10px;
+	z-index: 2;
+}
+.results div {
+	width: 55%;
+	height: 10px;
+	padding: 10px;
+	margin-left: 15px;
+	margin-top: 10px;
+	color: #BF1020;
+  font-weight: bold;
+  justify-content: center;
+	border-radius: 4px;
+	background: white;
+}
+
+.results label {
+	color: black;
+    font-weight: 600;
+    width: 230px;
+    height: 130px;
+	padding: 10px;
+    background: transparent;
+}
+.results form {
+	width: 90%;
+	/*height: 35px;*/
+	position: fixed;
+	bottom: 35px;
+    float: bottom;
+	align-content: flex-end;
+}
+
+.results button{
+	width: 100px;
+	height: 25px;
+	background: transparent;
+	border: 1px solid #fff;
+	cursor: pointer;
+	border-radius: 2px;
+	color: azure;
+	font-family: 'Exo', sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 6px;
+	margin-top: 10px;
+    margin-left: 10px;
+    float: right;
+  visibility: hidden;
+}
+
+.results button:hover{
+	opacity: 0.8;
+    color: #a18d6c;
+    background: white;
+}
+
+.results button:active{
+	opacity: 0.6;
+}
+
+.results button:focus{
+	outline: none;
+	border: 2px solid rgba(255,255,255,0.9);
+}
+
+#Status-Results {
+    position: relative;
+    float: right;
+    margin-right: 12px;
+    color: lightgreen;
+    font-size: 10px;
+    font-weight: bolder;
+}
+
+#checkbox-label {
+    visibility: hidden;
+}
+
+.checkbox {
+  visibility: hidden;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+#status-results {
+  visibility: hidden; 
+  border-radius: 5px;
+  background: green;   
+}
+
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  height: 30px;
+  width: 65px;
+  background: #f2f2f2;
+  border: 1px solid;
+  border-color: white #f7f7f7 whitesmoke;
+  border-radius: 3px;
+  background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+  background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+  background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+  background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.06));
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+
+.dropdown:before, .dropdown:after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  top: 9px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 4px dashed;
+  border-color: #888888 transparent;
+  pointer-events: none;
+}
+
+.dropdown:before {
+  border-bottom-style: solid;
+  border-top: none;
+}
+
+.dropdown:after {
+  margin-top: 7px;
+  border-top-style: solid;
+  border-bottom: none;
+}
+
+.dropdown-select {
+  position: relative;
+  width: 130%;
+  margin: 0;
+  padding: 4px ;
+  height: 28px;
+  line-height: 14px;
+  font-size: 12px;
+  color: #62717a;
+  text-shadow: 0 1px white;
+  background: #f2f2f2; /* Fallback for IE 8 */
+  background: rgba(0, 0, 0, 0) !important; /* "transparent" doesn't work with Opera */
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+.dropdown-select:focus {
+  z-index: 3;
+  width: 100%;
+  color: #394349;
+  outline: 2px solid #49aff2;
+  outline: 2px solid -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+.dropdown-select > option {
+  margin: 3px;
+  padding: 6px 8px;
+  text-shadow: none;
+  background: #f2f2f2;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Fix for IE 8 putting the arrows behind the select element. */
+
+.lt-ie9 .dropdown {
+  z-index: 1;
+}
+
+.lt-ie9 .dropdown-select {
+  z-index: -1;
+}
+
+.lt-ie9 .dropdown-select:focus {
+  z-index: 3;
+}
+
+/* Dirty fix for Firefox adding padding where it shouldn't. */
+
+@-moz-document url-prefix() {
+  .dropdown-select {
+    padding-left: 6px;
+  }
+}

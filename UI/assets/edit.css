@@ -1,0 +1,69 @@
+body {
+  font-family: Arial, Tahoma, Verdana, Helvetica, sans-serif;
+}
+
+.star {
+  color: red;
+}
+
+A {
+  text-decoration: none;
+  color: #333333;
+  font-family: Tahoma,Verdana,Helvetica,sans-serif;
+  font-size: 11px;
+}
+
+.main {
+  margin: 10px;
+}
+.main-title {
+  font-size: 19px;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+.main .save_buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 270px;
+  padding-bottom: 15px;
+}
+.main .common-form-wrap {
+  background: #F9F9F9;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+.main .common-form-wrap-title {
+  font-weight: bold;
+  margin-bottom: 15px;
+  background: linear-gradient(#fcfcfc, #eaeaea);
+  padding: 10px 15px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.main .common-form {
+  width: 500px;
+}
+.main .common-form-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-gap: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  /*SELECT,*/
+}
+.main .common-form-item BUTTON {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.main .form-file {
+  white-space: nowrap;
+}
+.main .multi-upload {
+  border: 1px solid #E7E7E7;
+  font-size: 11px;
+}
+.main .upload-image P {
+  font-weight: bold;
+  display: inline-block;
+}

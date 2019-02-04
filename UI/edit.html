@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="assets/edit.css" rel="preload stylesheet" as="style">
+  <script defer src="assets/edit.js"></script>
+  <title>Politico | User Access</title>
+</head>
+
+
+<body>
+  <div class="main">
+  <h1 class="main-title">Edit User()ID: </h1>
+  <div class="save_buttons">
+    <input type="button" value="Save &amp; Return" onclick="">
+    <input type="button" value="Save &amp; Stay" onclick="">
+    <input type="button" value="Cancel" onclick="">
+  </div>
+  <div class="common-form-wrap">
+    <div class="common-form-wrap-title">
+      <h2>Login Information</h2>
+    </div>
+    <ul class="common-form">
+      <li class="common-form-item">
+        <label for="email_1">
+          <span class="star">* </span>
+          Email Address
+        </label>
+        <input name="email_1" type="text" id="email_1" class="width_medium bg_white border" value="amir@123.com.OPTOUT">
+      </li>
+      <li class="common-form-item">
+        <label for="">&nbsp; Status</label>
+        <select name="enum_3" id="enum_3" class="bg_white border">
+          <option value="Active" selected="">Active</option>
+          <option value="Suspended">Suspended</option>
+          <option value="NotActive">NotActive</option>
+          <option value="Pending">Pending</option>
+          <option value="Incompleted">Incompleted</option>        
+        </select>
+      </li>
+      <li class="common-form-item">
+        <label for="">&nbsp; Type</label>
+        <select name="enum_4" id="enum_4" class="bg_white border">
+          <option value="siteMember" selected="">siteMember</option>
+          <option value="ToolsProvider">ToolsProvider</option>
+          <option value="Admin">Admin</option>        
+        </select>
+      </li>
+      <li class="common-form-item">
+        <label for="">&nbsp; Approve Email Via Admin</label>
+        <select name="enum_14" id="enum_14" class="bg_white border">
+          <option value="No" selected="">No</option>
+          <option value="Yes">Yes</option>        
+        </select>
+      </li>
+      <li class="common-form-item">
+        <button id="buttonForExec" onclick="resetPassword()">reset password</button>
+      </li>
+    </ul>
+  </div>
+  <div class="common-form-wrap">
+    <div class="common-form-wrap-title">
+      <h2>User Details</h2>
+    </div>
+    <ul class="common-form">
+      <li class="common-form-item">
+        <label for="email_1">
+          <span class="star">* </span>
+          First Name
+        </label>
+        <input name="input_5" type="text" id="input_5" class="width_big bg_white border" value="Amir 65">
+      </li>
+      <li class="common-form-item">
+        <label for="">&nbsp; Last Name</label>
+        <input name="input_6" type="text" id="input_6" class="width_big bg_white border" value="YT">
+      </li>
+      <li class="common-form-item">
+        <label for="">&nbsp; Dispaly Name</label>
+        <input name="input_30" type="text" id="input_30" class="width_big bg_white border" value="">
+      </li>
+      <li class="common-form-item">
+        <label for="">&nbsp; Country code</label>
+        <input name="input_150" type="text" id="input_150" class="width_big bg_white border" value="+">
+      </li>
+      <li class="common-form-item">
+        <label for="">Phone number</label>
+        <input name="input_151" type="text" id="input_151" class="width_big bg_white border" value="">
+      </li>
+      <li class="common-form-item">
+        <label for="">URL Title</label>
+        <input name="input_9" type="text" id="input_9" class="width_big bg_white border" value="THE TITLE">
+      </li>
+      <li class="common-form-item">
+        <label for="">URL</label>
+        <input name="url_input_10" type="text" id="url_input_10" class="width_big bg_white border" value="http://google.com" placeholder="http(s)://">
+      </li>
+      <li class="common-form-item">
+        <label for="">Book 1 Image</label>
+        <form name="iform" action="" class="form-file" method="post" enctype="multipart/form-data">
+          <input type="file" class="multi-upload" id="file" name="MultiUpload[]" style="border:1px solid #E7E7E7;font-size:11px;">
+          <div id="loading" style="display:none;"><img src="https://i-invdn-com.akamaized.net/admin/images/file_uploader.gif" border="0"></div>
+          <div class="MultiFile-label" id="files_list"></div><input type="hidden" id="files_count" value="0">
+          <input type="hidden" name="PKey_ID" id="PKey_ID" value="101000241">
+          <input type="hidden" name="field_suffix_increasing" value="">
+          <input type="hidden" name="field_suffix_start_from" value="">
+          <input type="hidden" name="field_suffix_end" value="">
+          <input type="hidden" name="field" id="field" value="book_image_1">
+          <input type="hidden" name="table" value="ec_fmedia.sites_users">
+          <input type="hidden" name="PKey" value="user_ID">
+          <input type="hidden" name="id" value="41">
+          <input type="hidden" name="maximum_files" value="1">
+          <input type="hidden" name="allowed_extensions" value="">
+          <input type="hidden" name="upload_dir" value="upload-1">
+          <input type="hidden" name="add_dir_to_field" value="No">
+        </form>
+      </li>
+      <li class="common-form-item">
+        <label for="">Book 1 Url</label>
+        <input name="input_42" type="text" id="input_42" class="width_big bg_white border" value="">
+      </li>
+      <li class="common-form-item">
+        <label for="">Book 1 Name</label>
+        <input name="input_43" type="text" id="input_43" class="width_big bg_white border" value="">
+      </li>
+      <li class="common-form-item">
+        <label for="">Book 2 Image</label>
+        <form name="iform" action="" method="post" enctype="multipart/form-data" class="form-file">
+          <input type="file" class="multi-upload" id="file" name="MultiUpload[]">
+          <div id="loading" style="display:none;"><img src="https://i-invdn-com.akamaized.net/admin/images/file_uploader.gif" border="0"></div>
+          <div class="MultiFile-label" id="files_list"></div><input type="hidden" id="files_count" value="0">
+          <input type="hidden" name="PKey_ID" id="PKey_ID" value="101000241">
+          <input type="hidden" name="field_suffix_increasing" value="">
+          <input type="hidden" name="field_suffix_start_from" value="">
+          <input type="hidden" name="field_suffix_end" value="">
+          <input type="hidden" name="field" id="field" value="book_image_2">
+          <input type="hidden" name="table" value="ec_fmedia.sites_users">
+          <input type="hidden" name="PKey" value="user_ID">
+          <input type="hidden" name="id" value="46">
+          <input type="hidden" name="maximum_files" value="1">
+          <input type="hidden" name="allowed_extensions" value="">
+          <input type="hidden" name="upload_dir" value="upload-1">
+          <input type="hidden" name="add_dir_to_field" value="No">
+        </form>
+      </li>
+      <li class="common-form-item">
+        <label for="">Book 2 Url</label>
+        <input name="input_47" type="text" id="input_47" class="width_big bg_white border" value="">
+      </li>
+      <li class="common-form-item">
+        <label for="">Book 2 Name</label>
+        <input name="input_48" type="text" id="input_48" class="width_big bg_white border" value="">
+      </li>
+      <li class="common-form-item">
+        <label for="">Description</label>
+        <div class="upload-image">
+          <p>Upload:</p>
+          <a href="JavaScript:showUploadFrame('textarea_11_ifr')">Images</a>
+        </div>
+      </li>
+      <li class="common-form-item">
+        <label for=""></label>
+      </li>
+    </ul>
+  </div>
+</div>
+</body>
+
+</html>

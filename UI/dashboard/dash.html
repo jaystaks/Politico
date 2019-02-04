@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>POLITICO | Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="dash.css" />
+  <script async src="dash.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="sidebar">
+      <ul>
+        <li class="logo">
+          <a href="#">
+            <img src="" />
+          </a>
+        <li>
+        <li class="current">
+          <a href="#">Home</a>
+        </li>
+        <li class="has-children">
+          <a href="#">My Reviews <span class="badge">2</span></a>
+          <ul class="sub-menu">
+            <li>
+              <a href="#" class="tooltip-right" data-tooltip="You have 2 new reviews!">List Reviews <span class="badge">2</span></a>
+            </li>
+            <li class="admin">
+              <a href="#" class="tooltip-right" data-tooltip="Only visible to admins."><span class="lock"></span> Comments</a>
+            </li>
+            <li>
+              <a href="#">Ask for Reviews</a>
+            </li>
+          </ul>
+        </li>
+        <li class="has-children">
+          <a href="#">Political Review</a>
+          <ul class="sub-menu">
+            <li>
+              <a href="#">Add Aspirants</a>
+            </li>
+            <li>
+              <a href="#">Edit Aspirants</a>
+            </li>
+            <li>
+              <a href="#">Create office</a>
+            </li>
+            <li>
+              <a href="#">Delete Party</a>
+            </li>
+            <li>
+              <a href="#">Edit Party</a>
+            </li>
+           </ul>
+        </li>
+        <li class="admin">
+          <a href="#" title="admin-only" class="tooltip-right" data-tooltip="Only visible to admins."><span class="lock"></span> Political Review</a>
+        </li>
+        <li>
+          <a href="#">Reputation Control Center</a>
+        </li>
+        <li class="spacer">Admin</li>
+        <li class="has-children">
+          <a href="#">Users</a>
+          <ul class="sub-menu">
+            <li>
+              <a href="#">List Users</a>
+            </li>
+            <li>
+              <a href="#">Add User</a>
+            </li>
+            <li class="admin">
+              <a target="_blank" href="https://codepen.io/xhynk/full/VpMpVE" class="tooltip-right" data-tooltip="Only visible to admins."><span class="lock"></span> Permissions</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Training</a>
+        </li>
+        <li class="admin">
+          <a href="#" title="admin-only" class="tooltip-right" data-tooltip="Only visible to admins."><span class="lock"></span> Upgrade</a>
+        </li>
+        <li class="spacer"><div class="hr"></div></li>
+        <li>
+          <a href="#" class="tooltip-right" data-tooltip="Ready to leave? :(">Logout</a>
+        </li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="header">
+        <span class="label"><strong><a href="https://codepen.io/xhynk/full/LkgXxA" target="_blank">Politico Electoral</a></strong></span>
+        <span class="pipe"></span>
+        &nbsp;<span class="label">Dashboard</span>
+        <div class="menu">
+          <a href="#" class="faux wiggle-bug tooltip-bottom" data-tooltip="Report Bugs or Concerns." title="Report a Bug"><span class="bug"></span></a>
+          <a href="#">Network</a>
+          <a href="#">Review Engines</a>
+          <a href="#">Cast Vote</a>
+        </div>
+      </div>
+      <div class="main">
+        <div class="widget totals">
+          <h4 class="widget-title"><span data-tooltip="Analytical information about your Review Engine.">Analysis</span> <a href="#" class="tooltip-left button" data-tooltip="Attempt to reload Analytical data.">Reload Data</a></h4>
+          <div class="widget-content text-center">
+            <div class="chart quarter">
+              <span class="label">Presidential</span><br /><br />
+              <img src="http://jamsandjelli.es/public/img/pie-completion.png" />
+            </div>
+            <div class="chart quarter">
+              <span class="label">Gubernatorial</span><br /><br />
+              <img src="http://jamsandjelli.es/public/img/pie-reviews.png" />
+            </div>
+            <div class="chart quarter">
+              <span class="label">Prime Minister</span>
+              <br /><br />
+              <img src="http://jamsandjelli.es/public/img/pie-visibility.png" />
+            </div>
+            <div class="chart quarter">
+              <span class="label">Member of Parliament</span><br /><br />
+              <img src="http://jamsandjelli.es/public/img/pie-competition.png" />
+            </div>
+          </div>
+        </div>
+        <div class="widget half local">
+          <h4 class="widget-title"><span data-tooltip="Breakdown of reviews gathered on your Review Engine.">Local Reviews</span> <a href="#" class="button">View Local Reviews</a></h4>
+          <div class="widget-content">
+            <p>You've gotten <strong class="bubble tooltip" data-tooltip="17.5% of your total Local Reviews.">35</strong> Local Reviews in the past month, and <strong>200</strong> total.</p>
+            <div class="width-graph">
+              <h4>This Month:</h4>
+              <div class="one-star tooltip-bottom" data-tooltip="1 Star Reviews: 5 (14%)" style="width: 14%;">&nbsp;</div>
+              <div class="two-star tooltip-bottom" data-tooltip="2 Star Reviews: 2 (6%)" style="width: 6%;">&nbsp;</div>
+              <div class="three-star tooltip-bottom" data-tooltip="3 Star Reviews: 6 (17%)" style="width: 17%;">&nbsp;</div>
+              <div class="four-star tooltip-bottom" data-tooltip="4 Star Reviews: 8 (23%)" style="width: 23%;">&nbsp;</div>
+              <div class="five-star tooltip-bottom" data-tooltip="5 Star Reviews: 14 (40%)" style="width: 40%;">&nbsp;</div>
+            </div>
+            <div class="width-graph">
+              <h4>Since the Beginning:</h4>
+              <div class="one-star tooltip-bottom" data-tooltip="1 Star Reviews: 20 (10%)" style="width: 10%;">&nbsp;</div>
+              <div class="two-star tooltip-bottom" data-tooltip="2 Star Reviews: 10 (5%)" style="width: 5%;">&nbsp;</div>
+              <div class="three-star tooltip-bottom" data-tooltip="3 Star Reviews: 40 (20%)" style="width: 20%;">&nbsp;</div>
+              <div class="four-star tooltip-bottom" data-tooltip="4 Star Reviews: 70 (35%)" style="width: 35%;">&nbsp;</div>
+              <div class="five-star tooltip-bottom" data-tooltip="5 Star Reviews: 60 (30%)" style="width: 30%;">&nbsp;</div>
+            </div>
+            <div style="clear:both;"></div>
+            <div class="traverse text-center">
+              <a href="#" class="button current">This Month</a>
+              <a href="#" class="button">This Quarter</a>
+              <a href="#" class="button">This Year</a>
+              <a href="#" class="button">All Time</a>
+            </div>
+          </div>
+        </div>
+        <div class="widget half external">
+          <h4 class="widget-title"><span data-tooltip="Breakdown of reviews gathered elsewhere.">Third Party Reviews</span> <a href="#" class="button">View Third Party Reviews</a></h4>
+          <div class="widget-content">
+            <p>You've gotten <strong class="bubble tooltip" data-tooltip="63.1% of your total Third Party Reviews.">24</strong> Third Party Reviews in the past month, and <strong>38</strong> total.</p>
+            <div class="width-graph">
+              <h4>Facebook: <strong class="bubble tooltip" data-tooltip="37% of third party reviews we've tracked.">7</strong> Reviews</h4>
+              <div class="one-star tooltip-bottom" data-tooltip="1 Star Reviews: 1 (14%)" style="width: 14%;">&nbsp;</div>
+              <div class="two-star tooltip-bottom" data-tooltip="2 Star Reviews: 1 (14%)" style="width: 14%;">&nbsp;</div>
+              <div class="three-star tooltip-bottom" data-tooltip="3 Star Reviews: 1 (14%)" style="width: 14%;">&nbsp;</div>
+              <div class="four-star tooltip-bottom" data-tooltip="4 Star Reviews: 2 (29%)" style="width: 29%;">&nbsp;</div>
+              <div class="five-star tooltip-bottom" data-tooltip="5 Star Reviews: 2 (29%)" style="width: 29%;">&nbsp;</div>
+            </div>
+            <div class="width-graph">
+              <h4>Google+: <strong class="bubble tooltip" data-tooltip="63% of third party reviews we've tracked.">17</strong> Reviews</h4>
+              <div class="one-star tooltip-bottom" data-tooltip="1 Star Reviews: 3 (18%)" style="width: 18%;">&nbsp;</div>
+              <div class="two-star tooltip-bottom" data-tooltip="2 Star Reviews: 1 (6%)" style="width: 6%;">&nbsp;</div>
+              <div class="three-star tooltip-bottom" data-tooltip="3 Star Reviews: 2 (12%)" style="width: 12%;">&nbsp;</div>
+              <div class="four-star tooltip-bottom" data-tooltip="4 Star Reviews: 2 (12%)" style="width: 12%;">&nbsp;</div>
+              <div class="five-star tooltip-bottom" data-tooltip="5 Star Reviews: 9 (52%)" style="width: 52%;">&nbsp;</div>
+            </div>
+            <div style="clear:both;"></div>
+            <div class="traverse text-center">
+              <a href="#" class="button current">This Month</a>
+              <a href="#" class="button">This Quarter</a>
+              <a href="#" class="button">This Year</a>
+              <a href="#" class="button">All Time</a>
+            </div>
+          </div>
+        </div>
+        <div class="widget invites">
+          <h4 class="widget-title"><span data-tooltip="Analytical data for your Review Invites.">Review Invites</span> <a href="#" class="button">View Review Invites</a></h4>
+          <div class="widget-content">
+            <p>You've sent <a href="#" class="link">Review Invites</a> to <strong>64</strong> contacts this month, <strong class="bubble hoverable tooltip" data-tooltip="31% of total recipients.">20</strong> have left reviews!</p>
+            <div class="width-graph">
+              <div class="five-star tooltip-bottom" data-tooltip="20 (31%) of contacts left a review!" style="width: 31%"></div>
+              <div class="three-star tooltip-bottom" data-tooltip="44 (69%) of contacts didn't leave a review." style="width: 69%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+          </body>
+          </html>
