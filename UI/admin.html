@@ -1,242 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
-
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin</title>
-	<script defer src="assets/admin.js"></script>
-	<link rel="stylesheet" type="text/css" media="screen" href="assets/admin.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <title>ADMIN</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/main.css" />
   </head>
-	
-	<body>
-        <div id="dashboard">
-            <!-- Sidebar -->
-            <div id="sidebar-wrapper">
-                <ul class="sidebar-nav" v-cloak >
-                    <li class="sidebar-brand">
-                        <a href="#">
-                        </a>
-                    </li>
-                    <li v-bind:class="{ active: view == 'dashboard' }" v-on:click="view = 'dashboard'" >
-                        <a href="#">Dashboard</a>
-                    </li>
-                    <li v-bind:class="{ active: view == 'users' }" v-on:click="view = 'users'">
-                        <a href="#"> Users</a>
-                    </li>
-                    <li>
-                        <a class="a-disabled" href="#">ParkEvents</a>
-                    </li>
-                    <li>
-                        <a class="a-disabled" href="#">ParkingSpots</a>
-                    </li>
-                    <li v-bind:class="{ active: view == 'about' }" v-on:click="view = 'about'">
-                        <a href="#">About</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /#sidebar-wrapper -->
-            <!-- search
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <form class="navbar-form navbar-left">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Search">
-                                </div>
-                                <button type="submit" class="btn btn-default">Submit</button>
-                            </form>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>  search end -->
-            <div id="page-content-wrapper" v-cloak>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-10"></div>
-                        <div class="col-lg-2"><a class="logout">Logout</a></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div v-if="view === 'dashboard'" id="start-view">
-                                <div class="jumbotron">
-                                    <h1 class="display-4">Hey Admin!</h1>
-                                    <p class="lead">This is a simple website, where you can edit, delete and add data to the mongoDB database.</p>
-                                    <hr class="my-4">
-                                    <p>Following collections from the database are available:</p>
-                                    <p class="lead">
-                                        <button type="button" class="btn btn-primary" v-on:click="view = 'users'">
-                                            Users <span class="badge badge-light">{{total}}</span>
-                                            <span class="sr-only">in the Database</span>
-                                        </button>
-                                        <button type="button" class="btn btn-secondary disabled">
-                                            ParkEvents <span class="badge badge-light">Release 2.0</span>
-                                            <span class="sr-only">in the Database</span>
-                                        </button>
-                                        <button type="button" class="btn btn-secondary disabled">
-                                            ParkingSpots <span class="badge badge-light">Release 2.0</span>
-                                            <span class="sr-only">in the Database</span>
-                                        </button>
-                                    </p>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="card bg-light">
-                                            <h5 class="card-header">News</h5>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Latest Document:</h5>
-                                                <p class="card-text">{{latestUser}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                         <div class="card bg-light">
-                                            <h5 class="card-header ">Statistics</h5>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Amount of Documents</h5>
-                                                <p class="card-text">Users: {{total}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div v-if="view === 'users'" >
-                                <div class="row">
-                                    <div class="col-lg-10">
-                                        <h4><span class="bold">Total Users:</span> {{total}} </h4>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <button type="button"  v-on:click="popup= 3" class="btn btn-primary">Add New User</button>
-                                    </div>
-                                </div>
-                                <div class="pop-up edit" v-if="popup === 1">
-                                    <button type="button" class="close" aria-label="Close" v-on:click="popup= null">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h2>Edit User: {{cUserId}}</h2> <br>
-                                    <form @submit.prevent='updateUser'>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="inputEmail3">Email</label>
-                                                <input type="email" v-model="email" class="form-control" id="inputEmail3" v-bind:placeholder="cUserEmail">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="inputPassword3">Password (plain)</label>
-                                                <input type="password" v-model="password" class="form-control" id="inputPassword3" v-bind:placeholder="cUserPassword">
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="inputName3">Name</label>
-                                                <input type="text" v-model="name" class="form-control" id="inputName3" v-bind:placeholder="cUserName">
-                                            </div>
-                                        </div>
-                                        <div class="alert alert-danger" v-if="errorMessage != ''" role="alert">
-                                            {{errorMessage}}
-                                        </div>
-                                        <br>
-                                        <button type="submit" class="btn btn-primary">Update User</button>
-                                    </form>
-                                </div>
-                                <div class="pop-up edit user-view" v-if="popup === 3" >
-                                    <button type="button" class="close" aria-label="Close" v-on:click="popup= null">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h2>Add new User</h2> <br>
-                                    <form @submit.prevent='addUser'>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="inputEmail2">Email* (must be unique)</label>
-                                                <input type="email" v-model="email" class="form-control" id="inputEmail2" >
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="inputPassword2">Password* (plain)</label>
-                                                <input type="password" v-model="password" class="form-control" id="inputPassword2">
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="inputName2">Name</label>
-                                                <input type="text" v-model="name" class="form-control" id="inputName2">
-                                            </div>
-                                        </div>
-                                        <p>*required</p>
-                                        <div class="alert alert-danger" v-if="errorMessage != ''" role="alert">
-                                            {{errorMessage}}
-                                        </div>
-                                        <br>
-                                        <button type="submit" class="btn btn-primary">Add User</button>
-                                    </form>
-                                </div>
-                                <div class="pop-up delete" v-if="popup === 2" id="user-view">
-                                    <button type="button" class="close" aria-label="Close" v-on:click="popup= null">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h3>Are you sure you want to delete user: {{cUserId}} ?</h3> <br>
-                                    <form @submit.prevent='deleteUser'>
-                                        <button type="submit" class="btn btn-primary btn-lg">Yes</button>
-                                        <button type = "reset" class="btn btn-danger btn-lg" v-on:click="popup= null">No</button>
-                                    </form>
-                                </div>
-                                <table class="table">
-                                    <thead class="thead-light">
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Password</th>
-                                        <th scope="col">Operations</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr is="user-item"
-                                                v-for="(item, index) in users"
-                                                v-bind:user="item"
-                                                v-bind:key="item.id"
-                                                v-on:edit="openEdit"
-                                                v-on:delete="openDelete"
-                                        >
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div v-if="view === 'about'" id="about-view">
-                                <h2>About </h2>
-                                <br>
-                                <p>
-                                    <span class="bold"> Nonumy </span>- Lorem ipsum dolor sit amet, consetetur sadipscing 
-                                </p>
-                                <p>Stet clita kasd gubergre <br><br></p>
-                          
-                               
-                                <br> <br>
-                                <div class="row logos">
-                                    <div class="col-lg-8"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /#page-content-wrapper -->
-
+  <body>
+<!-- / My brand -->
+<div class='brand'>
+  <a href='#' target='_blank'>
+    <img src='assets/images/logo.png'>
+  </a>
+</div>
+<!-- / Begin Body -->
+<div class='swanky'>
+  <!-- / Introduction Block -->
+  <div class='swanky_title'>
+    <h1>ADMINSTRATOR</h1>
+    <p>Welcome to Politico Admin Dashboard, Create, Edit, Delete Aspirants and Parties.</p>
+    <div class='swanky_title__social'>
+      <a href='login.html' target='_blank'>
+        <div class='slide'>
+          <div class='arrow'>
+            <div class='stem'></div>
+            <div class='point'></div>
+          </div>
         </div>
-        <!-- /#wrapper -->
+        <img src='assets/images/home.jpeg'>
+        HOME
+      </a>
+    </div>
+  </div>
+  <!-- /////////// Begin Dropdown //////////// -->
+  <div class='swanky_wrapper'>
+    <input id='Dashboard' name='radio' type='radio'>
+    <label for='Dashboard'>
+      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/dash.png'>
+      <span>Dashboard</span>
+      <div class='lil_arrow'></div>
+      <div class='bar'></div>
+      <div class='swanky_wrapper__content'>
+        <ul>
+          <li>Tallying Centers</li>
+          <li>Reports</li>
+          <li>Analytics</li>
+        </ul>
+      </div>
+    </label>
+    <input id='Sales' name='radio' type='radio'>
+    <label for='Sales'>
+      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/del.png'>
+      <span>Political Party</span>
+      <div class='lil_arrow'></div>
+      <div class='bar'></div>
+      <div class='swanky_wrapper__content'>
+        <ul>
+          <li>Add Party</li>
+          <li>Delete Party</li>
+          <li>Edit Party</li>
+        </ul>
+      </div>
+    </label>
+    <input id='Messages' name='radio' type='radio'>
+    <label for='Messages'>
+      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/mess.png'>
+      <span>Messages</span>
+      <div class='lil_arrow'></div>
+      <div class='bar'></div>
+      <div class='swanky_wrapper__content'>
+        <ul>
+          <li>Inbox</li>
+          <li>Outbox</li>
+          <li>Sent</li>
+          <li>Archived</li>
+        </ul>
+      </div>
+    </label>
+    <input id='Users' name='radio' type='radio'>
+    <label for='Users'>
+      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/users.png'>
+      <span>Aspirants</span>
+      <div class='lil_arrow'></div>
+      <div class='bar'></div>
+      <div class='swanky_wrapper__content'>
+        <ul>
+          <li>Add Aspirant</li>
+          <li>Edit Aspirant</li>
+          <li>Delete Aspirant</li>
+          <li>Add Office</li>
+          <li>Delete Office</li>
+        </ul>
+      </div>
+    </label>
+    <input id='Settings' radio='radio' type='radio'>
+    <label for='Settings'>
+      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/set.png'>
+      <span>Settings</span>
+      <div class='lil_arrow'></div>
+      <div class='swanky_wrapper__content'>
+        <ul>
+          <li>Databases</li>
+          <li>Change User</li>
+          <li>Log Out</li>
+        </ul>
+      </div>
+    </label>
+  </div>
+  <!-- /////////// End Dropdown //////////// -->
+</div>
+</body>
 
-    <script src="assets/admin.js"></script>
-	</body>
 </html>

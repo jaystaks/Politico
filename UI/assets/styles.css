@@ -327,7 +327,7 @@ body{
 	position: absolute;
 	top: calc(50% - 75px);
 	left: calc(50% - 50px);
-	height: 150px;
+	height: 100px;
 	width: 350px;
 	padding: 10px;
 	z-index: 2;
@@ -438,7 +438,7 @@ body {
 	color: rgba(255, 255, 255, 0.9);
 	text-shadow: 0.5px 0.5px 1px rgb(10, 70, 117);
 	box-shadow: 0 0 4px rgba(0, 0, 0, 0.49);
-	height: 95px;
+	height: 150px;
 	position: relative;
 }
 
@@ -556,7 +556,7 @@ span.notification {
 
 .left-sidebar {
 	background: #333333;
-	height: calc(100vh - 95px);
+	height: calc(100vh - 100px);
 	width: 250px;
 	box-shadow: 0 4px 4px #000;
 	position: relative;

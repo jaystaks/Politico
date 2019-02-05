@@ -1,48 +1,170 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
-
-  <script defer src="assets/main.js"></script>
-  <meta charset="UTF-8">
-  <title>LOGIN PAGE</title>
-  <link rel="stylesheet" type="text/css" media="screen" href="assets/styles.css" />
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+	<script defer src="assets/admin.js"></script>
+	<meta charset="UTF-8">
+	<title>LOGIN PAGE</title>
+	<link rel="stylesheet" type="text/css" media="screen" href="assets/admin.css" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
 
-  <div class="body"></div>
-		<div class="grad"></div>
-		<div class="header">
-			<div>Politico<span>Elect</span></div>
-		</div>
-		<br>
-		<div class="login">
-      <div class="field-wrap">
-        <label>
-        username<span class="req">*</span>
-        </label>
-        <input type="text" name="username" required autocomplete="off" />
+	<div class="smooth">
+		<header>
+			<h3>POLITICO</h3>
+			<ul>
+				<li><a href="#one">Home</a></li>
+				<li><a href="#two">About</a></li>
+				<li><a href="#three">Feedback</a></li>
+				<li><a href="#four">Our Stories</a></li>
+				<li><a href="signup.html">SIGNUP</a></li>
+			</ul>
+		</header>
+		<section id="one">
+			<div class="content">
+				<div>
+					<h1>What We <span>Do</span></h1>
+					<p class="lead">Help to build a platform which both the politicians and citizens can use. Politico enables citizens give their mandate to politicians running for different government offices while building trust in the process through transparency.</p>
+				</div>
+				<div class="blur">
+					<form><img src="assets/images/person.png" />
+						<input type="text" placeholder="Email:" required/>
+						<input type="text" placeholder="Password:" required/><a class="button" href="/">SIGN IN</a><br>
+						<p class="forgot"><a href="pass-reset.html">Forgot Password?</a></p><br>
+					</form>
+				</div>
+			</div>
+		</section>
+		<section id="two">
+			<h2>Our<span>Pillars</span></h2>
+			<p>At Politico we are driven by THREE main pillars.</p>
+			<div class="blocks">
+				<div class="block">
+					<p>INTEGRITY</p>
+				</div>
+				<div class="block">
+					<p>TRANSPARENT</p>
+				</div>
+				<div class="block">
+					<p>FREE AND FAIR</p>
+				</div>
+			</div>
+		</section>
+		<section id="three">
+			<h2>Feedback<span> Form</span></h2>
+			<form name="feedback form" method="post" action="/">
+				<table width="450px">
+					</tr>
+					<tr>
+						<td valign="top">
+							<label for="full_name">Full Name *</label>
+						</td>
+						<td valign="top">
+							<input type="text" name="full_name" maxlength="50" size="30">
+						</td>
+					</tr>
+
+					<tr>
+						<td valign="top" ">
+  <label for="voter ">Voter's Number *</label>
+ </td>
+ <td valign="top ">
+  <input  type="text " name="voters_no " maxlength="50 " size="30 ">
+ </td>
+</tr>
+<tr>
+ <td valign="top ">
+  <label for="email ">Email Address *</label>
+ </td>
+ <td valign="top ">
+  <input  type="text " name="email " maxlength="80 " size="30 ">
+ </td>
+
+</tr>
+<tr>
+ <td valign="top ">
+  <label for="telephone ">Telephone Number</label>
+ </td>
+ <td valign="top ">
+  <input  type="text " name="telephone " maxlength="30 " size="30 ">
+ </td>
+</tr>
+<tr>
+ <td valign="top ">
+  <label for="comments ">Comments *</label>
+ </td>
+ <td valign="top ">
+  <textarea  name="comments " maxlength="1000 " cols="25 " rows="6 "></textarea>
+ </td>
+
+</tr>
+<tr>
+ <td colspan="2 " style="text-align:center ">
+  <input type="submit " value="Submit "><a href="# ">Submit</a>
+ </td>
+</tr>
+</table>
+</form>
+    </section>
+    <section id="four ">
+      <h2>Testimonials</h2>
+      <p>Below are some of the the feedbacks and responses from aspirants as from the previous election and citizens.</p>
+      <div class="blocks ">
+        <div class="block ">
+          <h4>Musalia Mudavadi - Governor Bungoma County</h4>
+          <p>“I can truly say that the work Politico Electoral has been exercising INTEGRITY in a way that our votes were handled diligently and expeditiously that our past election went off without a hitch”</p>
+        </div>
+        <div class="block ">
+          <h4>Jayson Staks - Senior Developer at Politico</h4>
+          <p>“It is not power that corrupts but fear. Fear of losing power corrupts those who wield it and fear of the scourge of power corrupts those who are subject to it.”</p>
+        </div>
+        <div class="dots ">
+          <div class="dot "></div>
+          <div class="dot "></div>
+          <div class="dot "></div>
+        </div>
       </div>
-
-      <div class="field-wrap">
-        <label>
-        Password<span class="req">*</span>
-        </label>
-        <input type="password" value="FakePSW" id="myInput" name="password" required autocomplete="off" />
+    </section>
+    <footer id="bottom ">
+      <div class="widgets ">
+        <h3>POLITICO</h3>
+        <div class="widget ">
+          <h5 class="follow ">Follow Us</h5>
+          <ul>
+            <li><a href="# " target="blank ">Facebook</a></li>
+            <li><a href="# " target="blank ">Instagram</a></li>
+            <li><a href="# " target="blank ">Twitter</a></li>
+          </ul>
+        </div>
+        <div class="widget ">
+          <h5>Political Offices</h5>
+          <ul>
+            <li>President</li>
+            <li>Governor</li>
+            <li>Senator</li>
+            <li>M.P</li>
+          </ul>
+        </div>
+        <div class="widget ">
+          <h5>Political Parties</h5>
+          <ul>
+            <li>Jubilee</li>
+            <li>NASA</li>
+            <li>CCM</li>
+            <li>Kanu</li>
+          </ul>
+        </div>
       </div>
-
-      <!-- An element to toggle between password visibility -->
-      <input type="checkbox" onclick="myFunction()">Show Password
-
-      <p class="forgot"><a href="pass-reset.html">Forgot Password?</a></p>
-
-      <button type="submit" class="button button-block" />Log In</button>
-
-		</div>
+      <div class="copy ">
+        <p>
+          &copy; 2019 with  <span>&#9829;</span> <a href="# " target="_blank ">Politico Elect</a></p><a href="#one ">Scroll top &#x2191;</a>
+      </div>
+    </footer>
+  </div>
 
 </body>
 

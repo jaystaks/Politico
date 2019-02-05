@@ -3,95 +3,63 @@
 
   <head>
     <meta charset="UTF-8">
-    <script defer src="assets/main.js"></script>
-    <title>Politico |User Page</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Politico |Petition</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/main.css" />
   </head>
-  <body>
+</head>
+<body>
 
-<form method="post" action="2" class="en__component en__component--page">
+<h2>Election Petition Form</h2>
+<p>Not satisfied with the results? Kindly take time and fill this form to file your petition...</p>
 
-
-  <ul class="en__errorList">
-  </ul>
-
-  <div class="en__component en__component--row en__component--row--1">
-    <div class="en__component en__component en__component--column">
-      <div class="en__component en__component--copyblock" style="
-
-
-
-
-
-
-
-">
-        <p>Election Petition Form</p>
-
-
+<div class="container">
+  <form action="/">
+    <div class="row">
+      <div class="col_petition">
+        <label for="fname">First Name</label>
       </div>
-      <div class="en__component en__component--formblock" style="">
-
-
-        <div class="en__field en__field--text en__field--4170 en__field--emailAddress">
-          <div class="en__field__error">Email is required</div>
-          <label class="en__field__label" style="">Email</label>
-          <div class="en__field__element en__field__element--text">
-            <input type="text" class="en__field__input en__field__input--text" name="supporter.emailAddress" value="">
-          </div>
-        </div>
-        <div class="en__field en__field--text en__field--4188 en__field--firstName">
-          <label class="en__field__label" style="">Aspirant's Name</label>
-          <div class="en__field__element en__field__element--text">
-            <input type="text" class="en__field__input en__field__input--text" name="supporter.firstName" value="">
-          </div>
-        </div>
-        <div class="en__field en__field--text en__field--4187 en__field--lastName">
-          <label class="en__field__label" style="">Political Office</label>
-          <div class="en__field__element en__field__element--text">
-            <input type="text" class="en__field__input en__field__input--text" name="supporter.lastName" value="">
-          </div>
-        </div>
-        <div class="en__field en__field--text en__field--4190 en__field--phoneNumber">
-          <label class="en__field__label" style="">Voter's Number</label>
-          <div class="en__field__element en__field__element--text">
-            <input type="text" class="en__field__input en__field__input--text" name="supporter.phoneNumber" value="">
-          </div>
-        </div>
-        <div class="en__field en__field--text en__field--4189 en__field--address1">
-          <label class="en__field__label" style="">Address</label>
-          <div class="en__field__element en__field__element--text">
-            <input type="text" class="en__field__input en__field__input--text" name="supporter.address1" value="">
-          </div>
-        </div>
-        
-        <div class="en__field en__field--select en__field--4194 en__field--country">
-          <label class="en__field__label" style="">County</label>
-          <div class="en__field__element en__field__element--select">
-            <select class="en__field__input en__field__input--select" name="supporter.country">
-            <option value="">Please select</option>
+      <div class="col_county">
+        <input type="text" id="fname" name="firstname" placeholder="Your names..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col_petition">
+        <label for="lname">Voter's Reg</label>
+      </div>
+      <div class="col_county">
+        <input type="text" id="lname" name="lastname" placeholder="Your voter's registration no...">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col_petition">
+        <label for="country">County</label>
+      </div>
+      <div class="col_county">
+        <select id="county" name="county">
+          <option value="">Select County</option>
             <option value="NA">Nairobi</option>
-            <option value="----------------">----------------</option>
             <option value="KE">Kiambu</option>
             <option value="KI">Kisumu</option>
             <option value="MS">Mombasa</option>
             <option value="TN">Tharaka Niithi</option>
             <option value="NR">Nakuru</option>
-      </select>
-          </div>
-        </div>
-        <div class="en__field en__field--text en__field--4193 en__field--postcode en__hidden">
-          <label class="en__field__label" style="">Postcode</label>
-          <div class="en__field__element en__field__element--text">
-            <input type="text" class="en__field__input en__field__input--text" name="supporter.postcode" value="" disabled="">
-          </div>
-        </div>
-
-        <div class="en__submit"><button style="">SIGN</button></div>
-
+        </select>
       </div>
     </div>
-  </div>
-  <input type="hidden" name="hidden" class="en__hiddenFields" value="supporter.region,supporter.city,supporter.postcode"></form>
-  </body>
-  </html>
+    <div class="row">
+      <div class="col_petition">
+        <label for="subject">Subject</label>
+      </div>
+      <div class="col_county">
+        <textarea id="subject" name="subject" placeholder="File petition.." style="height:200px"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
