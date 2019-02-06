@@ -17,4 +17,8 @@ This are the required endpoints...
 | ○ Get a specific political office.  |
 
 
-[![Build Status](https://travis-ci.org/jaystaks/Politico.svg?branch=master)](https://travis-ci.org/jaystaks/Politico)
+
+[![Build Status](https://travis-ci.org/jaystaks/Politico.svg?branch=develop)](https://travis-ci.org/jaystaks/Politico)
+
+[![Coverage Status](https://coveralls.io/repos/github/jaystaks/Politico/badge.svg?branch=develop)](https://coveralls.io/github/jaystaks/Politico?branch=develop)
+
