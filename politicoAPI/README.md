@@ -16,4 +16,5 @@ This are the required endpoints...
 | ○ Get all political offices.        |
 | ○ Get a specific political office.  |
 
-Rendered table
+
+[![Build Status](https://travis-ci.org/jaystaks/Politico.svg?branch=master)](https://travis-ci.org/jaystaks/Politico)
