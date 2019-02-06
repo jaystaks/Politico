@@ -1,10 +1,30 @@
 parties = []
 
-class Political:
+class Political():
     def __init__(self):
-        self.data= parties
+        self.parties= parties
 
-    def create_political_party(self, id, name, hqAddress, logoUrl):
+    def create_political_party(self, name, hqAddress, logoUrl):
+        party= {
+            "party_id": len(self.parties)+1,
+            "name": name,
+            "hqAddress": hqAddress,
+            "logoUrl": logoUrl
+
+        }
+        self.parties.append(party)
+        return party
+
+    def get_political_parties(self):
+        return self.parties
+
+    def get_specific_political_party(self, party_id):
+        if self.data:
+            for party in self.data:
+                if party.get('party_id') == party_id:
+                    return party
+
+    def edit_political_party():
         party= {
             "party_id": len(self.data)+1,
             "ID": id,
