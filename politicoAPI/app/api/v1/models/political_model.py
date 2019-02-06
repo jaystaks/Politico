@@ -19,19 +19,11 @@ class Political():
         return self.parties
 
     def get_specific_political_party(self, party_id):
-        if self.data:
-            for party in self.data:
-                if party.get('party_id') == party_id:
+        if self.parties:
+            for party in self.parties:
+                if party['party_id'] == party_id:
                     return party
 
     def edit_political_party():
-        party= {
-            "party_id": len(self.data)+1,
-            "ID": id,
-            "name": name,
-            "hqAddress": hqAddress,
-            "logoUrl": logoUrl,
-
-        }
-        self.data.append(party)
+        self.parties.append(party)
         return party
