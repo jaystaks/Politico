@@ -20,3 +20,4 @@ This are the required endpoints...
 [![Build Status](https://travis-ci.org/jaystaks/Politico.svg?branch=develop)](https://travis-ci.org/jaystaks/Politico)
 
 [![Coverage Status](https://coveralls.io/repos/github/jaystaks/Politico/badge.svg?branch=develop)](https://coveralls.io/github/jaystaks/Politico?branch=develop)
+
