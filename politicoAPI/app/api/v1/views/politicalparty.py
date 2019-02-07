@@ -15,35 +15,30 @@ class Party():
         feedback = Political().create_political_party(name, hqAddress, logoUrl)
         return make_response(jsonify({
             "message": "Success!! Party Created",
-            "party": "party('name')"
          }))
 
     @politicalparty.route('/parties',methods=['GET'])
     def get_political_parties():
         parties =[]
         parties =Political().get_political_parties()
-
         return make_response(jsonify({
             "message": "Success!! Parties Listed",
             "parties" : parties
         }))
 
-    @politicalparty.route('/parties/<int:id>',methods=['GET'])
+    @politicalparty.route('/parties/<int:party_id>',methods=['GET'])
     def get_specific_political_party(party_id):
         party = Political().get_specific_political_party(party_id)
-
         return make_response(jsonify({
             "message": "Success!! Party found",
-            "party" : party
+            "party":party
         }))
 
-    @politicalparty.route('/parties/<int:id>',methods=['PATCH'])
-    def edit_political_party(id):
-
-
-        party = Political().get_specific_political_party(party_id)
+    @politicalparty.route('/parties/<int:party_id>',methods=['PATCH'])
+    def edit_political_party(part_id):
+        party = Political().edit_political_party(party_id)
         return make_response(jsonify({
-            "message": "Success!! Party found"
+            "message": "Success!! Party patched"
         }))
 
     @politicalparty.route('/parties/<int:id>',methods=['DELETE'])
