@@ -25,3 +25,16 @@ class Party():
             "message": "Success!! Party patched",
             "data": party
         }))
+
+
+    @politicalparty.route('/parties/<int:party_id>',methods=['DELETE'])
+    def delete_political_party(party_id):
+        party = Political().delete_political_party(party_id)
+        if party:
+            return jsonify({
+            "message" : "Success!! Party Deleted",
+            "party":party
+            })
+        return jsonify({
+            "message": "Error!! Not Deleted"
+        })

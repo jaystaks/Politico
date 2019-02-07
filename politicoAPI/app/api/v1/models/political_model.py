@@ -25,3 +25,10 @@ class Political():
                     party["hqAddress"] = parties["hqAddress"]
                     party["logoUrl"] = parties["logoUrl"]
                     return parties
+
+    def delete_political_party(self, party_id):
+        if self.parties:
+            for party in self.parties:
+                if party.get('party_id') ==party_id:
+                    self.parties.remove(party)
+                    return party
