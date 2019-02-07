@@ -15,15 +15,13 @@ class Political():
         self.parties.append(party)
         return party
 
-    def get_political_parties(self):
-        return self.parties
-
-    def get_specific_political_party(self, party_id):
+    def edit_political_party(self, parties):
         if self.parties:
             for party in self.parties:
-                if party['party_id'] == party_id:
-                    return party
-
-    def edit_political_party():
-        self.parties.append(party)
-        return party
+                if party['party_id'] == parties:
+                    # return party
+                    party["party_id"] = parties["party_id"]
+                    party["name"] = parties["name"]
+                    party["hqAddress"] = parties["hqAddress"]
+                    party["logoUrl"] = parties["logoUrl"]
+                    return parties
