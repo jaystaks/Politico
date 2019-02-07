@@ -15,3 +15,8 @@ class PoliticalOffice():
 
     def get_political_office(self):
         return self.offices
+
+    def get_specific_political_office(self, id):
+        for office in offices:
+            if office.id == id:
+                return office
