@@ -18,3 +18,13 @@ class Office():
             "offices" : offices
 
          }))
+
+    @politicaloffice.route('/office',methods=['GET'])
+    def get_political_office():
+        offices = PoliticalOffice().get_political_office()
+        return make_response(jsonify({
+            "status" : 200,
+            "message": "Success!!",
+            "offices" : offices
+
+         }))
