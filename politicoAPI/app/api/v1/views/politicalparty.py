@@ -38,3 +38,20 @@ class Party():
         return jsonify({
             "message": "Error!! Not Deleted"
         })
+
+    @politicalparty.route('/parties/<int:party_id>',methods=['GET'])
+    def get_specific_political_party(party_id):
+        party = Political().get_specific_political_party(party_id)
+        return make_response(jsonify({
+            "message": "Success!! Party found",
+            "party":party
+        }))
+
+    @politicalparty.route('/parties',methods=['GET'])
+    def get_political_parties():
+        parties =[]
+        parties =Political().get_political_parties()
+        return make_response(jsonify({
+            "message": "Success!! Parties Listed",
+            "parties" : parties
+        }))

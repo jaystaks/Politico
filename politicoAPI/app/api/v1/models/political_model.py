@@ -32,3 +32,12 @@ class Political():
                 if party.get('party_id') ==party_id:
                     self.parties.remove(party)
                     return party
+
+    def get_specific_political_party(self, party_id):
+        if self.parties:
+            for party in self.parties:
+                if party['party_id'] == party_id:
+                    return party
+
+    def get_political_parties(self):
+        return self.parties
