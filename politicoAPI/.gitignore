@@ -1,2 +1,13 @@
-venv
-polenv
+venv/
+polenv/
+*.log
+*.pot
+*.pyc
+__pycache__/
+media
+.env
+.venv
+env/
+ENV/
+env.bak/
+venv.bak/
