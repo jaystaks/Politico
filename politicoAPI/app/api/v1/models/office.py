@@ -13,4 +13,5 @@ class PoliticalOffice():
         self.offices.append(office)
         return office
 
-    
+    def get_political_office(self):
+        return self.offices
