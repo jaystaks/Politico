@@ -1,22 +1,21 @@
 """
 Tests for Political Offices Views
 """
-import unittest
 from instance.config import appConfig
 from app import politico
 from unittest import TestCase
 from app.api.v1.models.office import PoliticalOffice
 
 
-class TestPoliticalOfficesViews(unittest.TestCase):
+class TestPoliticalOfficesViews(TestCase):
   """
   Test Political Offices Views Class
   """
   def setUp(self):
-      self.app = politico().test_client()
+      self.app = politico('testing').test_client()
       self.political_office = {"name": "Sample", "type": "Presidential"}
 
-  def test_get_political_office(self):
+  def test_get_polotical_office(self):
     """
     Test Political Offices GET
     """
@@ -50,7 +49,7 @@ class TestPoliticalOfficesViews(unittest.TestCase):
       "Sample 2", "Presidential"
     )
 
-    response = self.app.get('/api/v1/office/' + str(political_office['office.id']))
+    response = self.app.get('/api/v1/office/' + str(political_office['id']))
 
     self.assertIn('Sample 2', str(response.data))
     self.assertNotIn('Sample 1', str(response.data))
