@@ -28,3 +28,12 @@ class Office():
             "offices" : offices
 
          }))
+
+    @politicaloffice.route('/office/<int:id>',methods=['GET'])
+    def get_specific_political_office(id):
+        offices = PoliticalOffice().get_specific_political_office(id)
+        return make_response(jsonify({
+            "status" : 200,
+            "message": "Success!! Office found",
+            "party": offices
+        }))
