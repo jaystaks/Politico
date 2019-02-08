@@ -12,13 +12,13 @@ class TestPoliticalPartyViews(TestCase):
   Test Political Party Views Class
   """
   def setUp(self):
-      self.app = politico().test_client()
+      self.app = politico('testing').test_client()
       self.political_party = {
         "name": "Sample",
         "hqAddress": "Some Address",
         "logoUrl": "example.com"}
 
-  def test_get_political_party(self):
+  def test_get_polotical_party(self):
     """
     Test Political Parties get
     """
@@ -64,7 +64,7 @@ class TestPoliticalPartyViews(TestCase):
       "Sample", "Some Address", "example.com")
     response = self.app.get('/api/v1/parties')
     self.assertEqual(response.status_code, 200)
-    self.assertIn('Sample', str(response.data))
+    self.assertIn('Sample Get', str(response.data))
 
     editted_party_data = {
         "name": "Sample Edit",
@@ -88,7 +88,7 @@ class TestPoliticalPartyViews(TestCase):
     self.assertEqual(response.status_code, 200)
     self.assertIn('Sample Get', str(response.data))
 
-    self.app.delete('/api/v1/parties/' + str(party['party_id']))
+    self.app.delete('/api/v1/parties' + party['party_id'])
     self.assertEqual(response.status_code, 200)
 
     response = self.app.get('/api/v1/parties')
