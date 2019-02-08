@@ -67,28 +67,12 @@ class Political():
                     self.data.remove(party)
                     return party
 
-    def check_for_any_empty_fields(self):
-        message = None
-        if "" in self.data.values():
-            message = False
-        elif (
-            self.data["name"].isspace() or
-            self.data["hqAddress"].isspace() or
-            self.data["logoUrl"].isspace()
-        ):
-            message = False
-        else:
-            message = True
-        return message
+    def get_specific_political_party(self, party_id):
+        if self.parties:
+            for party in self.parties:
+                if party['party_id'] == party_id:
+                    return party
 
-    def check_for_expected_value_types(self):
-        message = None
-        if (
-            isinstance(self.data["name"], str) and
-            isinstance(self.data["hqAddress"], str) and
-            isinstance(self.data["logoUrl"], str)
-        ):
-            message = True
-        else:
-            message = False
-        return message
+    def get_political_parties(self):
+        return self.parties
+
