@@ -5,7 +5,7 @@ Project Overview The general elections are around the corner, hence it’s a pol
 
 API Endpoints.
 
-This are the features of the required endpoints...
+This are the features of the required endpoints..
 
 | Requirements                        |
 | ------------------------------------|
