@@ -11,11 +11,11 @@ class Office():
         name = office['name']
         type = office['type']
 
-        offices = PoliticalOffice().create_political_office(name, type, id)
+        offices = PoliticalOffice().create_political_office(name, type)
         return make_response(jsonify({
             "status" : 201,
-            "message": "Success!! Office Created",
-            "offices" : offices
+            'message': 'Success!! Office Created',
+            'offices' : offices
 
          }))
 
@@ -24,16 +24,16 @@ class Office():
         offices = PoliticalOffice().get_political_office()
         return make_response(jsonify({
             "status" : 200,
-            "message": "Success!!",
-            "offices" : offices
+            'message': 'Success!!',
+            'offices' : offices
 
          }))
 
-    @politicaloffice.route('/office/<int:id>',methods=['GET'])
-    def get_specific_political_office(id):
-        offices = PoliticalOffice().get_specific_political_office(id)
+    @politicaloffice.route('/office/<int:office_id>',methods=['GET'])
+    def get_specific_political_office(office_id):
+        offices = PoliticalOffice().get_specific_political_office(office_id)
         return make_response(jsonify({
             "status" : 200,
-            "message": "Success!! Office found",
-            "party": offices
+            'message': 'Success!! Office found',
+            'party': offices
         }))

@@ -7,20 +7,32 @@ politicalparty= Blueprint('politicalparty',__name__,url_prefix='/api/v1')
 class Party():
     @politicalparty.route('/parties',methods=['POST'])
     def create_political_party():
+        # Add validation for when the Party with same name exists
+        # Return 416
         party = request.get_json()
         name = party['name']
         hqAddress = party['hqAddress']
         logoUrl = party['logoUrl']
 
-        feedback = Political().create_political_party(name, hqAddress, logoUrl)
-        return make_response(jsonify({
-            "message": "Success!! Party Created",
-         }))
+        if not Political().exists(name):
+            feedback = Political().create_political_party(
+            name, hqAddress, logoUrl)
+
+            # Return Party Data with status code 201: Created
+            return make_response(jsonify({
+            'id': feedback["party_id"],
+            'name': feedback["name"]
+            }), 201)
+        else:
+            return make_response(
+            jsonify({'error': 'Party already exists!'}),
+            416)
+
 
     @politicalparty.route('/parties/<int:party_id>',methods=['PATCH'])
     def edit_political_party(party_id):
-        parties = request.get_json()
-        party = Political().edit_political_party(party_id, parties)
+        party_data = request.get_json()
+        party = Political().edit_political_party(party_data, party_id)
         return make_response(jsonify({
             "message": "Success!! Party patched",
             "data": party

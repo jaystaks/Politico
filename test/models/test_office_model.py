@@ -31,5 +31,5 @@ class TestOfficeModel(TestCase):
     PoliticalOffice().create_political_office(
       "Office A", "Presidential")
 
-    returned_office = PoliticalOffice().get_specific_political_office(political_office["id"])
+    returned_office = PoliticalOffice().get_specific_political_office(political_office["office_id"])
     self.assertEquals(political_office, returned_office)
