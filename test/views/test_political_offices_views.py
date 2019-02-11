@@ -1,6 +1,7 @@
 """
 Tests for Political Offices Views
 """
+import unittest
 from instance.config import appConfig
 from app import politico
 from unittest import TestCase
@@ -49,7 +50,7 @@ class TestPoliticalOfficesViews(TestCase):
       "Sample 2", "Presidential"
     )
 
-    response = self.app.get('/api/v1/office/' + str(political_office['id']))
+    response = self.app.get('/api/v1/office/' + str(political_office['office_id']))
 
     self.assertIn('Sample 2', str(response.data))
     self.assertNotIn('Sample 1', str(response.data))

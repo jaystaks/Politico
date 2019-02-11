@@ -1,43 +1,56 @@
 parties = []
 
 class Political():
-    def __init__(self):
-        self.parties= parties
+
+    @staticmethod
+    def exists(name):
+        """
+        Checks if a party with the same name exists
+        Returns a boolean
+        """
+        for party in parties:
+            if party["name"] == name:
+                return True
+
+        return False
 
     def create_political_party(self, name, hqAddress, logoUrl):
         party= {
-            "party_id": len(self.parties)+1,
+            "party_id": len(parties)+1,
             "name": name,
             "hqAddress": hqAddress,
             "logoUrl": logoUrl
 
         }
-        self.parties.append(party)
+        parties.append(party)
         return party
 
     def get_political_parties(self):
-        return self.parties
+        return parties
 
     def get_specific_political_party(self, party_id):
-        if self.parties:
-            for party in self.parties:
+        if parties:
+            for party in parties:
                 if party['party_id'] == party_id:
                     return party
 
-    def edit_political_party(self, parties):
-        if self.parties:
-            for party in self.parties:
-                if party['party_id'] == parties:
+    def edit_political_party(self, data, party_id):
+        if parties:
+            for party in parties:
+                if party['party_id'] == party_id:
                     # return party
-                    party["party_id"] = parties["party_id"]
-                    party["name"] = parties["name"]
-                    party["hqAddress"] = parties["hqAddress"]
-                    party["logoUrl"] = parties["logoUrl"]
+                    party["name"] = data.get(
+                    'name', party["name"])
+                    party["hqAddress"] = data.get(
+                    'hqAddress', party["hqAddress"])
+                    party["logoUrl"] = data.get(
+                    'logoUrl', party["logoUrl"])
                     return parties
 
     def delete_political_party(self, party_id):
-        if self.parties:
-            for party in self.parties:
-                if party.get('party_id') ==party_id:
-                    self.parties.remove(party)
+        if parties:
+            for party in parties:
+                if party['party_id'] == party_id:
+                    parties.remove(party)
                     return party
+        return None

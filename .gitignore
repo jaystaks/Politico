@@ -1,10 +1,7 @@
-venv/
-polenv/
 *.log
 *.pot
 *.pyc
 __pycache__/
 media
-
-.venv
-venv.bak/
+venv
+.pytest_cache/
