@@ -5,18 +5,27 @@ Project Overview The general elections are around the corner, hence it’s a pol
 
 API Endpoints.
 
-This are the features of the required endpoints...
+## Endpoints - Features
 
-| Requirements                        |
-| ------------------------------------|
-| ○ Create a political party.         |
-| ○ Get all political parties.        |
-| ○ Get a specific political party.   |
-| ○ Edit a specific political party.  |
-| ○ Delete a particular party.        |
-| ○ Create a political office.        |
-| ○ Get all political offices.        |
-| ○ Get a specific political office.  |
+**Endpoint** | **Request**| **Description**
+--- | --- | ---
+`/api/v1/parties` | `POST` | Create a political party
+`/api/v1/parties` | `GET`| Fetch all political parties
+`/api/v1/parties/<int:id>` | `GET` |   Fetch a specific political party
+`/api/v1/parties/<int:id>` | `DELETE` |   Delete a specific political party
+`/api/v1/<int:id>/name` | `PATCH` | Edit a political party
+`/app/api/v1/offices` | `POST`| Create Political office
+`/api/v1/offices` | `GET` | Fetch all political offices
+`/api/v1/offices/<int:id>` | `GET` | Fetch a specific offices
+
+## Manually tested
+Go to github and clone repo https://github.com/jaystaks/Politico, switch to develop branch
+
+  -  Make sure to have the python _virtualenv_ if not `pip install virtualenv`
+  -  Create the env with this command `virtualenv venv`
+  -  For linux type this on the terminal `. venv/bin/activate`
+  -  Install the packages from the requirements.txt by using this commands `pip install -r requirements.txt`
+  -  And finally run` flask run`
 
 
 
