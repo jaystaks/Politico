@@ -1,7 +1,6 @@
 """
 Tests for Political Offices Views
 """
-import unittest
 from instance.config import appConfig
 from app import politico
 from unittest import TestCase

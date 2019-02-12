@@ -2,6 +2,18 @@ offices=[]
 
 class PoliticalOffice():
 
+    @staticmethod
+    def exists(self, name):
+        """
+        Checks if an office with the same name exists
+        Returns a boolean
+        """
+        for office in offices:
+            if office["name"] == name:
+                return True
+
+        return False
+
     def create_political_office(self, name, type):
         office= {
         "office_id": len(offices)+1,
