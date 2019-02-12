@@ -3,7 +3,7 @@ offices=[]
 class PoliticalOffice():
 
     @staticmethod
-    def exists(self, name):
+    def exists(name):
         """
         Checks if an office with the same name exists
         Returns a boolean
