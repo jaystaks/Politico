@@ -26,6 +26,7 @@ class Party():
         else:
             return make_response(jsonify({"error":"Party exists","code":409,"data":[party]}),409)
 
+
     @politicalparty.route('/parties/<int:party_id>',methods=['PATCH'])
     def edit_political_party(party_id):
         party_data = request.get_json()
