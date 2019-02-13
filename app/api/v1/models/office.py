@@ -21,8 +21,8 @@ class PoliticalOffice():
             return False
         return True
 
-
-    def create_political_office(self, name, office_type):
+    @classmethod
+    def create_political_office(cls, name, office_type):
         office= {
         "office_id": len(offices)+1,
         "name": name,
