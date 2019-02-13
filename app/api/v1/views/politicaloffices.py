@@ -1,4 +1,5 @@
 from flask import request, Blueprint, jsonify, make_response
+import json
 from app.api.v1.models.office import PoliticalOffice
 
 politicaloffice= Blueprint('politicaloffice',__name__,url_prefix='/api/v1/')
@@ -10,20 +11,13 @@ class Office():
         name = office['name']
         type = office['type']
 
-        if not PoliticalOffice().exists(name):
-            offices = PoliticalOffice().create_political_office(name, type)
-
-            # Return office data with status code 201: Created
-            return make_response(jsonify({
+        offices = PoliticalOffice().create_political_office(name, type)
+        return make_response(jsonify({
             "status" : 201,
             'message': 'Success!! Office Created',
             'offices' : offices
 
          }))
-        else:
-            return make_response(jsonify({
-                'error': 'Office Exists!'
-                }), 416)
 
     @politicaloffice.route('/office',methods=['GET'])
     def get_political_office():

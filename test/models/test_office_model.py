@@ -32,4 +32,4 @@ class TestOfficeModel(TestCase):
       "Office A", "Presidential")
 
     returned_office = PoliticalOffice().get_specific_political_office(political_office["office_id"])
-    self.assertEqual(political_office, returned_office)
+    self.assertEquals(political_office, returned_office)
