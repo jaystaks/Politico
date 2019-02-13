@@ -8,7 +8,7 @@ class Party():
     @politicalparty.route('/parties',methods=['POST'])
     def create_political_party():
         # Add validation for when the Party with same name exists
-        # Return 416
+        # Return 409
         party = request.get_json()
         name = party['name']
         hqAddress = party['hqAddress']
@@ -20,13 +20,16 @@ class Party():
 
             # Return Party Data with status code 201: Created
             return make_response(jsonify({
-            'id': feedback["party_id"],
-            'name': feedback["name"]
-            }), 201)
+            'Message': 'Success! Party Created',
+            "Party": {
+                'id': feedback["party_id"],
+                'name': feedback["name"]
+            }}), 201)
         else:
             return make_response(
-            jsonify({'error': 'Party already exists!'}),
-            416)
+            jsonify({'error': 'Party already exists!',
+            "Party": party }),
+            409)
 
     @politicalparty.route('/parties/<int:party_id>',methods=['PATCH'])
     def edit_political_party(party_id):
@@ -34,8 +37,8 @@ class Party():
         party = Political().edit_political_party(party_data, party_id)
         return make_response(jsonify({
             "message": "Success!! Party patched",
-            "data": party
-        }))
+            "Party": party
+        }),200)
 
 
     @politicalparty.route('/parties/<int:party_id>',methods=['DELETE'])
@@ -47,7 +50,7 @@ class Party():
             "party":party
             })
         return jsonify({
-            "message": "Error!! Not Deleted"
+            "message": "Error!! Party Not Deleted",
         })
 
     @politicalparty.route('/parties/<int:party_id>',methods=['GET'])
@@ -56,13 +59,18 @@ class Party():
         return make_response(jsonify({
             "message": "Success!! Party found",
             "party":party
-        }))
+        }), 200)
 
     @politicalparty.route('/parties',methods=['GET'])
     def get_political_parties():
         parties =[]
         parties =Political().get_political_parties()
-        return make_response(jsonify({
-            "message": "Success!! Parties Listed",
-            "parties" : parties
-        }))
+        if len(parties) == 0: 
+            return make_response(jsonify({
+                "message" : "List is empty"
+                }), 404)
+        else:
+            return make_response(jsonify({
+                "message": "Success!! Parties Listed",
+                "parties" : parties
+            }), 200)
