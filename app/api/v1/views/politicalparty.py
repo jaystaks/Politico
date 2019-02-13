@@ -61,11 +61,10 @@ class Party():
     def get_specific_political_party(party_id):
         party = Political().get_specific_political_party(party_id)
         return make_response(jsonify({
-            "status" : 200, 
+            "status" : 200,
             "message": "Success!! Party found",
             "party":party
         }))
-            
 
     @politicalparty.route('/parties',methods=['GET'])
     def get_political_parties():

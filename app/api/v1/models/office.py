@@ -45,4 +45,4 @@ class PoliticalOffice():
         return make_response(jsonify({
             "status" : "Page Not Found.",
             "message" : "URL does not exist"
-            }), 404)
+            }), 404)'''
