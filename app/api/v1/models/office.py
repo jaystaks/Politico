@@ -1,4 +1,5 @@
 offices=[]
+expected_offices = ("Federal", "Legislative", "State", "Local Government")
 
 class PoliticalOffice():
 
@@ -12,45 +13,36 @@ class PoliticalOffice():
             if office["name"] == name:
                 return True
 
-        return False
+        return False 
 
-    def create_political_office(self, name, type):
+    @staticmethod
+    def check_office_type(office_type):
+        if office_type not in expected_offices:
+            return False
+        return True
+
+
+    def create_political_office(self, name, office_type):
         office= {
         "office_id": len(offices)+1,
         "name": name,
-        "type": type
+        "type": office_type
         }
         offices.append(office)
         return office
 
-    def check_any_for_empty_fields(self):
-        message = None
-        if "" in offices.values():
-            message = False
-        elif (
-                offices["name"].isspace() or
-                offices["type"].isspace()
-        ):
-            message = False
-        else:
-            message = True
-        return message
-
-    def check_for_only_expected_value_types(self):
-        message = None
-        if (
-                isinstance(offices["name"], str) and
-                isinstance(offices["type"], str)
-        ):
-            message = True
-        else:
-            message = False
-        return message
-
     def get_political_office(self):
+        if len(offices) == 0: print('List is empty')
         return offices
 
     def get_specific_political_office(self, office_id):
         for office in offices:
             if office["office_id"] == office_id:
                 return office
+
+    def page_unavailable(e):
+        """Url errors, not found"""
+        return make_response(jsonify({
+            "status" : "Page Not Found.",
+            "message" : "URL does not exist"
+            }), 404)
