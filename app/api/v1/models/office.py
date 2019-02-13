@@ -13,7 +13,7 @@ class PoliticalOffice():
             if office["name"] == name:
                 return True
 
-        return False 
+        return False
 
     @staticmethod
     def check_office_type(office_type):
@@ -40,9 +40,9 @@ class PoliticalOffice():
             if office["office_id"] == office_id:
                 return office
 
-    def page_unavailable(e):
+    '''def page_unavailable(e):
         """Url errors, not found"""
         return make_response(jsonify({
             "status" : "Page Not Found.",
             "message" : "URL does not exist"
-            }), 404)
+            }), 404)'''

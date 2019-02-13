@@ -28,5 +28,3 @@ def method_not_allowed(e):
 		"status" : "Warning.",
 		"message" : "Method Not Allowed!"
 		}), 405)
-
-    
