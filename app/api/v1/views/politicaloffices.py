@@ -35,6 +35,7 @@ class Office():
         offices = PoliticalOffice().get_political_office()
         if len(offices) == 0: 
             return make_response(jsonify({
+                "status" : 404,
                 "message" : "List is empty"
                 }), 404)
         else:

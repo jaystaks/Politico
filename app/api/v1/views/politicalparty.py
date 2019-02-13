@@ -20,14 +20,16 @@ class Party():
 
             # Return Party Data with status code 201: Created
             return make_response(jsonify({
+            "status" : 201,
             'Message': 'Success! Party Created',
             "Party": {
                 'id': feedback["party_id"],
                 'name': feedback["name"]
             }}), 201)
         else:
-            return make_response(
-            jsonify({'error': 'Party already exists!',
+            return make_response(jsonify({
+            "status" : 409,
+            'error': 'Party already exists!',
             "Party": party }),
             409)
 
@@ -36,6 +38,7 @@ class Party():
         party_data = request.get_json()
         party = Political().edit_political_party(party_data, party_id)
         return make_response(jsonify({
+            "status" : 200,
             "message": "Success!! Party patched",
             "Party": party
         }),200)
@@ -46,6 +49,7 @@ class Party():
         party = Political().delete_political_party(party_id)
         if party:
             return jsonify({
+            "status" : 200,
             "message" : "Success!! Party Deleted",
             "party":party
             })
@@ -57,6 +61,7 @@ class Party():
     def get_specific_political_party(party_id):
         party = Political().get_specific_political_party(party_id)
         return make_response(jsonify({
+            "status" : 200,
             "message": "Success!! Party found",
             "party":party
         }), 200)
@@ -67,10 +72,12 @@ class Party():
         parties =Political().get_political_parties()
         if len(parties) == 0: 
             return make_response(jsonify({
+                "status" : 404,
                 "message" : "List is empty"
                 }), 404)
         else:
             return make_response(jsonify({
+                "status" : 200,
                 "message": "Success!! Parties Listed",
                 "parties" : parties
             }), 200)
