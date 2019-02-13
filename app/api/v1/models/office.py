@@ -39,10 +39,3 @@ class PoliticalOffice():
         for office in offices:
             if office["office_id"] == office_id:
                 return office
-
-    '''def page_unavailable(e):
-        """Url errors, not found"""
-        return make_response(jsonify({
-            "status" : "Page Not Found.",
-            "message" : "URL does not exist"
-            }), 404)'''

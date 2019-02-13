@@ -10,7 +10,6 @@ class Office():
         office = request.get_json()
         name = office['name']
         office_type = office['office_type']
-        
         if PoliticalOffice().check_office_type(office_type) is False:
             return make_response(jsonify({
             "status" : 404,
