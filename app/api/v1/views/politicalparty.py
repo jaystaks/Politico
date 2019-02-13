@@ -19,64 +19,38 @@ class Party():
             name, hqAddress, logoUrl)
 
             # Return Party Data with status code 201: Created
-            return make_response(jsonify({
-            "status" : 201,
-            'Message': 'Success! Party Created',
-            "Party": {
+            return make_response(jsonify({"Party":[{"message":"Success!! Party Created","code":201,"data": [{
                 'id': feedback["party_id"],
                 'name': feedback["name"]
-            }}), 201)
+            }]}]}),201)
         else:
-            return make_response(jsonify({
-            "status" : 409,
-            'error': 'Party already exists!',
-            "Party": party }),
-            409)
+            return make_response(jsonify({"error":"Party exists","code":409,"data":[party]}),409)
 
     @politicalparty.route('/parties/<int:party_id>',methods=['PATCH'])
     def edit_political_party(party_id):
         party_data = request.get_json()
         party = Political().edit_political_party(party_data, party_id)
-        return make_response(jsonify({
-            "status" : 200,
-            "message": "Success!! Party patched",
-            "Party": party
-        }))
-
+        return make_response(jsonify({"Party":[{"message":"Success!! Party Updated","code":200,"data":[party]}]}),200)
 
     @politicalparty.route('/parties/<int:party_id>',methods=['DELETE'])
     def delete_political_party(party_id):
         party = Political().delete_political_party(party_id)
         if party:
-            return jsonify({
-            "status" : 200,
-            "message" : "Success!! Party Deleted",
-            "party":party
-            })
-        return jsonify({
-            "message": "Error!! Party Not Deleted",
-        })
+            return jsonify({"message":"Success!! Party Deleted","code":200,"data":[party]},200)
+        else:
+            return jsonify({"message":"Forbidden!! Party Not Deleted","code":403,"data":[party]},403)
 
     @politicalparty.route('/parties/<int:party_id>',methods=['GET'])
     def get_specific_political_party(party_id):
         party = Political().get_specific_political_party(party_id)
-        return make_response(jsonify({
-            "status" : 200,
-            "message": "Success!! Party found",
-            "party":party
-        }))
+        return make_response(jsonify({"Party":[{"message":"Success!! Party found","code":200,"data":[party]}]}),200)
 
     @politicalparty.route('/parties',methods=['GET'])
     def get_political_parties():
         parties =Political().get_political_parties()
         if len(parties) == 0:
-            return make_response(jsonify({
-                "status" : 404,
-                "message" : "List is empty"
-                }))
+            return make_response(jsonify({"Parties":[{"message":"Sorry, List is Empty","code":404}]}),404)
+
         else:
-            return make_response(jsonify({
-                "status" : 200,
-                "message": "Success!! Parties Listed",
-                "parties" : parties
-            }))
+            return make_response(jsonify({"Parties":[{"message":"Success!! Parties Found","code":200,"data" : [parties]}]}),200)
+
