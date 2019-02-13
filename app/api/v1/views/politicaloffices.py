@@ -33,7 +33,7 @@ class Office():
     @politicaloffice.route('/office',methods=['GET'])
     def get_political_office():
         offices = PoliticalOffice().get_political_office()
-        if len(offices) == 0: 
+        if len(offices) == 0:
             return make_response(jsonify({
                 "status" : 404,
                 "message" : "List is empty"
@@ -44,7 +44,7 @@ class Office():
                 'message': 'Success!! offices Found!!',
                 'offices' : offices
 
-             }))    
+             }))
 
     @politicaloffice.route('/office/<int:office_id>',methods=['GET'])
     def get_specific_political_office(office_id):

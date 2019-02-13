@@ -41,7 +41,7 @@ class Party():
             "status" : 200,
             "message": "Success!! Party patched",
             "Party": party
-        }),200)
+        }))
 
 
     @politicalparty.route('/parties/<int:party_id>',methods=['DELETE'])
@@ -61,23 +61,23 @@ class Party():
     def get_specific_political_party(party_id):
         party = Political().get_specific_political_party(party_id)
         return make_response(jsonify({
-            "status" : 200,
+            "status" : 200, 
             "message": "Success!! Party found",
             "party":party
-        }), 200)
+        }))
+            
 
     @politicalparty.route('/parties',methods=['GET'])
     def get_political_parties():
-        parties =[]
         parties =Political().get_political_parties()
-        if len(parties) == 0: 
+        if len(parties) == 0:
             return make_response(jsonify({
                 "status" : 404,
                 "message" : "List is empty"
-                }), 404)
+                }))
         else:
             return make_response(jsonify({
                 "status" : 200,
                 "message": "Success!! Parties Listed",
                 "parties" : parties
-            }), 200)
+            }))
