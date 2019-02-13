@@ -1,4 +1,5 @@
 from flask import request, Blueprint, jsonify, make_response
+import json
 from app.api.v1.models.office import PoliticalOffice
 
 politicaloffice= Blueprint('politicaloffice',__name__,url_prefix='/api/v1/')
@@ -9,7 +10,7 @@ class Office():
         office = request.get_json()
         name = office['name']
         office_type = office['office_type']
-
+        
         if PoliticalOffice().check_office_type(office_type) is False:
             return make_response(jsonify({
             "status" : 404,
