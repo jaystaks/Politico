@@ -72,9 +72,9 @@ class Party():
         parties =Political().get_political_parties()
         if len(parties) == 0:
             return make_response(jsonify({
-                "status" : 404,
-                "Error" : "List is empty"
-                }),404)
+                "status" : 200,
+                "messager" : "List is empty"
+                }),200)
         else:
             return make_response(jsonify({
                 "status" : 200,
