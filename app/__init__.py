@@ -7,6 +7,7 @@ def politico(config_name):
     app= Flask(__name__)
 
     app.config.from_object(appConfig[config_name])
+    app.config["JSON_SORT_KEYS"] = False
 
     app.register_blueprint(politicalparty, url_prefix="/api/v1")
     app.register_blueprint(politicaloffice, url_prefix="/api/v1/")
