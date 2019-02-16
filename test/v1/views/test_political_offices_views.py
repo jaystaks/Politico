@@ -14,7 +14,7 @@ class TestPoliticalOfficesViews(TestCase):
   """
   def setUp(self):
       self.app = politico('testing').test_client()
-      self.political_office = {"name": "Sample", "office_type": "Presidential"}
+      self.political_office = {"name": "Sample", "type": "Presidential"}
 
   def test_get_polotical_office(self):
     """
@@ -32,9 +32,8 @@ class TestPoliticalOfficesViews(TestCase):
     Test Political Offices Create
     """
     PoliticalOffice().create_political_office(
-      "Sample", "office_type")
-    response = self.app.post(
-      '/api/v1/office', json=self.political_office)
+      "Sample", "type")
+    response = self.app.post('/api/v1/office', json=self.political_office)
     #self.assertEqual(response.status_code, 200)
     response = self.app.get('/api/v1/office')
     self.assertEqual(response.status_code, 200)
