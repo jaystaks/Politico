@@ -5,6 +5,9 @@ Project Overview The general elections are around the corner, hence it’s a pol
 
 API Endpoints.
 
+### DOCUMENTATION
+**[API End points documentation](https://politico1.docs.apiary.io/#)
+
 ## Endpoints - Features
 
 **Endpoint** | **Request**| **Description**
@@ -23,7 +26,7 @@ Go to github and clone repo https://github.com/jaystaks/Politico, switch to deve
 
   -  Make sure to have the python _virtualenv_ if not `pip install virtualenv`
   -  Create the env with this command `virtualenv venv`
-  -  For linux type this on the terminal `. venv/bin/activate`
+  -  For linux type this on the terminal `source venv/bin/activate`
   -  Install the packages from the requirements.txt by using this commands `pip install -r requirements.txt`
   -  And finally run` flask run`
 

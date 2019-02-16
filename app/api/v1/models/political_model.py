@@ -45,7 +45,7 @@ class Political():
                     'hqAddress', party["hqAddress"])
                     party["logoUrl"] = data.get(
                     'logoUrl', party["logoUrl"])
-                    return parties
+                    return party
 
     def delete_political_party(self, party_id):
         if parties:
