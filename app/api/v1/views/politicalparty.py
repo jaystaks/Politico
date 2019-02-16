@@ -23,29 +23,16 @@ class Party():
             'name': feedback["name"]
             }), 201)
         else:
-<<<<<<< HEAD
-            return make_response(
-            jsonify({'error': 'Party already exists!'}),
-            416)
-
-=======
             return make_response(jsonify({
             "status" : 409,
             'error': 'Party already exists!',
             "Party": party
             }), 409)
->>>>>>> ch-LFA-Feedback-Implemented-163944167
 
     @politicalparty.route('/parties/<int:party_id>',methods=['PATCH'])
     def edit_political_party(party_id):
         party_data = request.get_json()
         party = Political().edit_political_party(party_data, party_id)
-<<<<<<< HEAD
-        return make_response(jsonify({
-            "message": "Success!! Party patched",
-            "data": party
-        }))
-=======
         if party:
             return make_response(jsonify({
             "status" : 200,
@@ -57,22 +44,11 @@ class Party():
             "status":404,
             "error":"Party Not Found!",
             }),404)
->>>>>>> ch-LFA-Feedback-Implemented-163944167
-
 
     @politicalparty.route('/parties/<int:party_id>',methods=['DELETE'])
     def delete_political_party(party_id):
         party = Political().delete_political_party(party_id)
         if party:
-<<<<<<< HEAD
-            return jsonify({
-            "message" : "Success!! Party Deleted",
-            "party":party
-            })
-        return jsonify({
-            "message": "Error!! Not Deleted"
-        })
-=======
             return make_response(jsonify({
             "status" : 200,
             "message" : "Success!! Party Deleted",
@@ -83,17 +59,10 @@ class Party():
             "status":404,
             "error":"Party Not Found!",
             }),404)
->>>>>>> ch-LFA-Feedback-Implemented-163944167
 
     @politicalparty.route('/parties/<int:party_id>',methods=['GET'])
     def get_specific_political_party(party_id):
         party = Political().get_specific_political_party(party_id)
-<<<<<<< HEAD
-        return make_response(jsonify({
-            "message": "Success!! Party found",
-            "party":party
-        }))
-=======
         if party:
             return make_response(jsonify({
             "status" : 200,
@@ -105,18 +74,11 @@ class Party():
             "status":404,
             "error":"Party Does not exists!",
             }),404)
->>>>>>> ch-LFA-Feedback-Implemented-163944167
 
     @politicalparty.route('/parties',methods=['GET'])
     def get_political_parties():
         parties =[]
         parties =Political().get_political_parties()
-<<<<<<< HEAD
-        return make_response(jsonify({
-            "message": "Success!! Parties Listed",
-            "parties" : parties
-        }))
-=======
         if len(parties) == 0:
             return make_response(jsonify({
                 "status" : 200,
@@ -128,4 +90,3 @@ class Party():
                 "message": "Success!! Parties Listed",
                 "Parties" : parties
             }),200)
->>>>>>> ch-LFA-Feedback-Implemented-163944167
