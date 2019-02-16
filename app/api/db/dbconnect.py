@@ -1,5 +1,6 @@
 import psycopg2
 import click
+import os
 
 from flask.cli import with_appcontext
 from .schema import schema
@@ -14,7 +15,7 @@ class Database:
         self.conn = psycopg2.connect(
             database='test_db',
             user='postgres',
-            password='root',
+            password=os.getenv('DB_PASS'),
             host='127.0.0.1',
             port='5432'
         )
