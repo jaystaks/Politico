@@ -8,7 +8,6 @@ def politico(config_name):
     app= Flask(__name__)
 
     app.config.from_object(appConfig[config_name])
-    app.config.from_pyfile('config.py')
     app.config["JSON_SORT_KEYS"] = False
 
 

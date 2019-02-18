@@ -1,6 +1,5 @@
 import os
 from app import politico
-from flask import Flask
 from app.api.v1.views.politicalparty import politicalparty
 
 app = politico(os.getenv('FLASK_CONFIG') or 'development')

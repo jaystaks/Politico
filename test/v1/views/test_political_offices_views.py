@@ -16,7 +16,7 @@ class TestPoliticalOfficesViews(TestCase):
       self.app = politico('testing').test_client()
       self.political_office = {"name": "Sample", "type": "Presidential"}
 
-  def test_get_polotical_office(self):
+  def test_get_political_office(self):
     """
     Test Political Offices GET
     """
