@@ -5,6 +5,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
+    JSON_SORT_KEYS = False
 
 class TestingConfig(Config):
     TESTING = True
