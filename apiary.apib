@@ -6,7 +6,7 @@ Politico is an online voting system where voters exercide their freedom.
 
 ## Political parties [/parties]
 
-### Create a new party [POST]
+### Create a new party [POST https://pol-elect.herokuapp.com/api/v1/parties]
 
 + Response 201 (application/json)
 
@@ -18,7 +18,7 @@ Politico is an online voting system where voters exercide their freedom.
             }]
         }
 
-### Fetch a specific political party record. [GET /parties/<party-id>]
+### Fetch a specific political party record. [GET https://pol-elect.herokuapp.com/api/v1/parties/1]
 
 + Response 200 (application/json)
 
@@ -31,7 +31,7 @@ Politico is an online voting system where voters exercide their freedom.
             }]
         }
 
-### Fetch all parties. [GET /parties/]
+### Fetch all parties. [GET /https://pol-elect.herokuapp.com/api/v1/parties]
 
 + Response 200 (application/json)
 
@@ -58,7 +58,7 @@ Politico is an online voting system where voters exercide their freedom.
             ]
         }
         
-### Edit a specific political party name. [PATCH /parties/<party-id>/name]
+### Edit a specific political party name. [PATCH https://pol-elect.herokuapp.com/api/v1/parties/1]
 
 + Response 200 (application/json)
 
@@ -70,7 +70,7 @@ Politico is an online voting system where voters exercide their freedom.
             }]
         }
 
-### Delete a specific political party record. [DELETE /parties/<party-id>]
+### Delete a specific political party record. [DELETE https://pol-elect.herokuapp.com/api/v1/parties/1]
 
 + Response 200 (application/json)
 
@@ -83,7 +83,7 @@ Politico is an online voting system where voters exercide their freedom.
 
 ## Political Offices [/offices]
 
-### Fetch all political offices. [GET /offices]
+### Fetch all political offices. [GET https://pol-elect.herokuapp.com/api/v1/offices]
 
 + Response 200 (application/json)
 
@@ -105,7 +105,7 @@ Politico is an online voting system where voters exercide their freedom.
             }
             ]
         }
-### Create a political office. [POST /offices]
+### Create a political office. [POST https://pol-elect.herokuapp.com/api/v1/offices]
 
 + Response 201 (application/json)
 
@@ -118,7 +118,7 @@ Politico is an online voting system where voters exercide their freedom.
             }]
         }
 
-### Fetch a specific political office record. [GET /offices/<office-id>]
+### Fetch a specific political office record. [GET https://pol-elect.herokuapp.com/api/v1/offices/1]
 
 + Response 200 (application/json)
 
