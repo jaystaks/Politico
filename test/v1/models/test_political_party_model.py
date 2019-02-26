@@ -33,7 +33,7 @@ class TestPoliticalPartyModel(TestCase):
 
     returned_party = Political().get_specific_political_party(
       political_party["party_id"])
-    self.assertEquals(political_party, returned_party)
+    self.assertEqual(political_party, returned_party)
 
   def test_delete_political_party(self):
     """

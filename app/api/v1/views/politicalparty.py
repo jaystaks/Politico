@@ -8,7 +8,7 @@ class Party():
     @politicalparty.route('/parties',methods=['POST'])
     def create_political_party():
         # Add validation for when the Party with same name exists
-        # Return 416
+        # Return 409
         party = request.get_json()
         name = party['name']
         hqAddress = party['hqAddress']
@@ -18,7 +18,8 @@ class Party():
             feedback = Political().create_political_party(
             name, hqAddress, logoUrl)
             # Return Party Data with status code 201: Created
-            return make_response(jsonify({
+            return make_response(jsonify({"status":201,
+            "message":"Success!! Party Created",
             'id': feedback["party_id"],
             'name': feedback["name"]
             }), 201)

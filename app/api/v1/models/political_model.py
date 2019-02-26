@@ -26,6 +26,7 @@ class Political():
         return party
 
     def get_political_parties(self):
+        if len(parties) == 0: print('List is empty')
         return parties
 
     def get_specific_political_party(self, party_id):

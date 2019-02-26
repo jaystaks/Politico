@@ -1,0 +1,132 @@
+# Politico API
+
+Politico is an online voting system where voters exercide their freedom.
+
+## API Endpoint Specifications.
+
+## Political parties [/parties]
+
+### Create a new party [POST https://pol-elect.herokuapp.com/api/v1/parties]
+
++ Response 201 (application/json)
+
+        {
+            “status” : Integer,
+            “data” : [{
+            “id”: Integer, // id of newly created party
+            “name”: String,
+            }]
+        }
+
+### Fetch a specific political party record. [GET https://pol-elect.herokuapp.com/api/v1/parties/1]
+
++ Response 200 (application/json)
+
+        {
+            “status” : Integer,
+            “data” : [{
+            “id” : Integer, // political party unique id
+            “name” : String,
+            “logoUrl”: String,
+            }]
+        }
+
+### Fetch all parties. [GET /https://pol-elect.herokuapp.com/api/v1/parties]
+
++ Response 200 (application/json)
+
+        {
+            “status” : Integer,
+            “data” : [
+            {
+            “id” : Integer, // political party unique id
+            “name” : String,
+            “logoUrl”: String,
+            } , {
+            “id” : Integer, // political party unique id
+            “name” : String,
+            “logoUrl”: String,
+            } , {
+            “id” : Integer, // political party unique id
+            “name” : String,
+            “logoUrl”: String,
+            } , {
+            “id” : Integer, // political party unique id
+            “name” : String,
+            “logoUrl”: String,
+            }
+            ]
+        }
+        
+### Edit a specific political party name. [PATCH https://pol-elect.herokuapp.com/api/v1/parties/1]
+
++ Response 200 (application/json)
+
+        {
+            “status” : Integer,
+            “data” : [{
+            “id”: Integer, // political party unique id
+            “name” : String, // the new name of the political party
+            }]
+        }
+
+### Delete a specific political party record. [DELETE https://pol-elect.herokuapp.com/api/v1/parties/1]
+
++ Response 200 (application/json)
+
+        {
+            “status” : Integer,
+            “data” : [{
+            “message”: String
+            }]
+        }
+
+## Political Offices [/offices]
+
+### Fetch all political offices. [GET https://pol-elect.herokuapp.com/api/v1/offices]
+
++ Response 200 (application/json)
+
+        {
+            “status” : Integer,
+            “data” : [
+            {
+            “id” : Integer, // office record unique id
+            “type” : String, // type of office
+            “name”: String // name of office
+            }, {
+            “id” : Integer, // office record unique id
+            “type” : String, // type of office
+            “name”: String // name of office
+            }, {
+            “id” : Integer, // office record unique id
+            “type” : String, // type of office
+            “name”: String // name of office
+            }
+            ]
+        }
+### Create a political office. [POST https://pol-elect.herokuapp.com/api/v1/offices]
+
++ Response 201 (application/json)
+
+        {
+            “status” : Integer,
+            “data” : [{
+            “id” : Integer, // id of newly created office
+            “type” : String, // type of office
+            “name” : String, // name of office
+            }]
+        }
+
+### Fetch a specific political office record. [GET https://pol-elect.herokuapp.com/api/v1/offices/1]
+
++ Response 200 (application/json)
+
+        {
+            “status” : Integer,
+            “data” : [{
+            “id” : Integer, // office record unique id
+            “type” : String, // type of office
+            “name”: String // name of office
+            }]
+        }
