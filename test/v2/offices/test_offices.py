@@ -1,24 +1,14 @@
-from unittest import TestCase
 import json
+from unittest import TestCase
+
 from app import politico
-from app.api.v2.views.officeviews import OfficeView
-from app.api.v2.models.officemodels import OfficesModel
-from app.api.v2.utils.tester import create_office2, office_keys, get_office, office_category, office_name, offices, delete_office, name_exists, category_restriction, create_account, user_login
+from app.api.v2.utils.tester import create_office2, office_keys, office_name, category_restriction
 
 
 class TestOffice(TestCase):
 
     def setUp(self):
         self.client = politico("testing").test_client()
-
-    def get_token(self):
-        self.client.post('/api/v2/auth/signup', data=json.dumps(create_account),
-        content_type='application/json')
-        resp = self.client.post('/api/v2/auth/login', data=json.dumps(user_login),
-            content_type='application/json')
-        access_token = json.loads(resp.get_data(as_text=True))['token']
-        auth_header = {'Authorization': 'Bearer {}'.format(access_token)}
-        return auth_header
 
     def test_wrong_category_value(self):
         """
@@ -33,7 +23,7 @@ class TestOffice(TestCase):
 
     def test_unexisting_officeUrl(self):
         """
-        Test when unexisting url is provided.
+        Test wrong url.
         """
 
         response = self.client.get(
@@ -61,8 +51,7 @@ class TestOffice(TestCase):
         response = self.client.get(
             '/api/v2/offices', content_type='application/json', headers=self.get_token())
         result = json.loads(response.data.decode())
-        self.assertEqual(result['message'],
-            "success")
+        self.assertEqual(result['message'], "success")
         assert response.status_code == 200
 
     def test_unexisting_offices(self):
@@ -73,8 +62,7 @@ class TestOffice(TestCase):
         response = self.client.get(
             '/api/v2/offices', content_type='application/json', headers=self.get_token())
         result = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(result['message'],
-            "success")
+        self.assertEqual(result['message'], "success")
         assert response.status_code == 200
 
     def test_get_office(self):
@@ -88,8 +76,7 @@ class TestOffice(TestCase):
         response = self.client.get(
             '/api/v2/offices/1', content_type='application/json', headers=self.get_token())
         result = json.loads(response.data.decode())
-        self.assertEqual(result['message'],
-            'success')
+        self.assertEqual(result['message'], 'success')
         assert response.status_code == 200
 
     def test_unexisting_office(self):
@@ -124,6 +111,5 @@ class TestOffice(TestCase):
         response = self.client.delete(
             '/api/v2/offices/1/delete', content_type='application/json', headers=self.get_token())
         result = json.loads(response.data.decode())
-        self.assertEqual(result['message'],
-            'office deleted')
+        self.assertEqual(result['message'], 'office deleted')
         assert response.status_code == 200
