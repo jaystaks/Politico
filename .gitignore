@@ -4,6 +4,8 @@
 __pycache__
 media
 venv
-.pytest_cache
 psycopg2
 get-pip.py
+.pytest_cache/
+.env
+

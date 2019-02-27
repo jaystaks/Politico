@@ -27,8 +27,21 @@ Go to github and clone repo https://github.com/jaystaks/Politico, switch to deve
 -  Create the env with this command `virtualenv venv`
 -  For linux type this on the terminal `source venv/bin/activate`
 -  Install the packages from the requirements.txt by using this commands `pip install -r requirements.txt`
--  And finally run` flask run`
 
+## Running the application
+```
+    $ export DATABASE_URL="Your DATABASE_URL here"
+``` 
+or open .env file and copy your postgres database url
+```
+    #.env file
+    DATABASE_URL=postgres://username:password@hostname/databasename
+    
+    $ python manage.py runserver
+```
 
-
-
+## Testing
+- Run
+``` 
+    $ pytest 
+```

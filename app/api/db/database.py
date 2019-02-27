@@ -57,7 +57,6 @@ class Database:
         self.conn.commit()
         self.cur.close()
 
-
 def close_db(e=None):
     db = Database()
     db.close_db()
@@ -73,7 +72,6 @@ def init_db_command():
     db.execute_query(schema)
 
     click.echo('Database Initialized')
-
 
 def init_app(app):
     app.teardown_appcontext(close_db)
