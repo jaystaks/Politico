@@ -1,8 +1,11 @@
 *.log
 *.pot
 *.pyc
-__pycache__/
+__pycache__
 media
 venv
+psycopg2
+get-pip.py
 .pytest_cache/
 .env
+

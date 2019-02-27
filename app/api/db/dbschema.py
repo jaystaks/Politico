@@ -24,9 +24,9 @@ CREATE TABLE users(
     firstname VARCHAR(100) NOT NULL,
     lastname VARCHAR(100) NOT NULL,
     othername VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(100) NOT NULL,
-    phonenumber VARCHAR(100) NOT NULL,
+    phonenumber VARCHAR(100) UNIQUE NOT NULL,
     passporturl VARCHAR(100) NOT NULL,
     isadmin BOOLEAN DEFAULT FALSE
 );

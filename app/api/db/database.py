@@ -1,8 +1,9 @@
-import psycopg2
-import click
 import os
 
+import click
+import psycopg2
 from flask.cli import with_appcontext
+
 from .dbschema import schema
 
 
@@ -46,9 +47,20 @@ class Database:
         self.cur.close()
         self.conn.close()
 
+    def create_admin(self):
+        """Create a deafult admin user."""
+
+        query = "INSERT INTO users(firstname,lastname,othername,email,password,phonenumber,passporturl,isadmin)\
+            VALUES('Jayson','staks','other','jay@admin.com','pbkdf2:sha256:50000$7CNfLstB$543e786df1eafa03b81bb9788beb7e50f27f1334c748f2d7cbb23c04f02fd8ff','0712345678','adminjay.com','True')"
+
+        self.cur.execute(query)
+        self.conn.commit()
+        self.cur.close()
+
 def close_db(e=None):
     db = Database()
     db.close_db()
+
 
 @click.command('init-db')
 @with_appcontext

@@ -12,15 +12,15 @@ class BaseModel():
 
     def select_specific(self, select_field, select_data):
         query = "SELECT * FROM " \
-          + self.table_name + " WHERE " + select_field + "='" + select_data \
-          + "' ;"
+                + self.table_name + " WHERE " + select_field + "='" + select_data \
+                + "' ;"
         result = self.db.execute_query(query, True)
         return result
 
     def insert_data(self, col, data):
         query = "INSERT INTO " + self.table_name + " " + str(
-          tuple(col)).replace("'", "") + " VALUES " + str(
-              tuple(data)) + " RETURNING ID ;"
+            tuple(col)).replace("'", "") + " VALUES " + str(
+            tuple(data)) + " RETURNING ID ;"
 
         result = self.db.execute_query(query, True)
         return result
@@ -35,18 +35,18 @@ class BaseModel():
 
         set_string = str(
             tuple(update_data)
-            ).replace(")", "").replace("(", "").replace('"', "")
+        ).replace(")", "").replace("(", "").replace('"', "")
 
         if len(col) == 1:
             set_string = set_string.replace(",", "")
 
         query = "UPDATE " + self.table_name + " SET " + set_string \
-            + " WHERE ID=" + str(id) + ";"
+                + " WHERE ID=" + str(id) + ";"
         self.db.execute_query(query)
 
     def delete_specific(self, id):
         query = "DELETE FROM " + self.table_name \
-            + " WHERE id='" + str(id) + "';"
+                + " WHERE id='" + str(id) + "';"
         self.db.execute_query(query)
 
     def check_exists(self, data):
