@@ -57,24 +57,22 @@ class Database:
         self.conn.commit()
         self.cur.close()
 
-
-def close_db(e=None):
-    db = Database()
-    db.close_db()
-
-
-@click.command('init-db')
-@with_appcontext
-def init_db_command():
-    """
-    Clear the existing data and create new tables
-    """
-    db = Database()
-    db.execute_query(schema)
-
-    click.echo('Database Initialized')
+    def close_db(e=None):
+        db = Database()
+        db.close_db()
 
 
-def init_app(app):
-    app.teardown_appcontext(close_db)
-    app.cli.add_command(init_db_command)
+    @click.command('init-db')
+    @with_appcontext
+    def init_db_command():
+        """
+        Clear the existing data and create new tables
+        """
+        db = Database()
+        db.execute_query(schema)
+
+        click.echo('Database Initialized')
+
+    def init_app(app):
+        app.teardown_appcontext(close_db)
+        app.cli.add_command(init_db_command)
