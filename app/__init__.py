@@ -6,6 +6,8 @@ from app.api.v1.views.politicaloffices import politicaloffice
 from app.api.v1.views.politicalparty import politicalparty
 from app.api.v2.views.officeviews import political_office_bp
 from app.api.v2.views.partyviews import party
+from app.api.v2.views.resultsview import result
+from app.api.v2.views.candidateview import candidate
 from app.api.v2.views.petitionviews import petition
 from app.api.v2.views.userviews import user
 from app.api.v2.views.votesview import vote
@@ -51,7 +53,6 @@ def politico(config_name):
     app.register_error_handler(405, invalid_method)
     app.register_error_handler(500, internal_error)
 
-
     app.register_blueprint(politicalparty, url_prefix="/api/v1")
     app.register_blueprint(politicaloffice, url_prefix="/api/v1/")
     app.register_blueprint(user, url_prefix="/api/v2/auth")
@@ -59,6 +60,8 @@ def politico(config_name):
     app.register_blueprint(vote, url_prefix='/api/v2/')
     app.register_blueprint(petition, url_prefix='/api/v2/')
     app.register_blueprint(party, url_prefix='/api/v2/')
+    app.register_blueprint(result, url_prefix="/api/v2")
+    app.register_blueprint(candidate, url_prefix="/api/v2")
 
     init_app(app)
     JWTManager(app)
