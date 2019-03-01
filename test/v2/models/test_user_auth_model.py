@@ -1,6 +1,6 @@
 import json
-
 from unittest import TestCase
+
 from app import politico
 
 

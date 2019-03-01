@@ -1,0 +1,41 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E306" />
+          <option value="W391" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N802" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyShadowingBuiltinsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredNames">
+        <list>
+          <option value="id" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnreachableCodeInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="app.api.v2.utils.helper" />
+          <option value="app.api.v2.views.candidateviews.check_candidates_keys" />
+          <option value="app.api.v2.views.candidateviews.raise_error" />
+          <option value="app.api.v2.models.partymodels.PartiesModel.*" />
+          <option value="app.api.v2.views.partyviews.*" />
+          <option value="test.v2.offices.test_offices.TestOffice.get_token" />
+          <option value="app.api.v2.models.resultsmodel.ResultsModel.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

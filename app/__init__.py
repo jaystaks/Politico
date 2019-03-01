@@ -51,7 +51,6 @@ def politico(config_name):
     app.register_error_handler(405, invalid_method)
     app.register_error_handler(500, internal_error)
 
-
     app.register_blueprint(politicalparty, url_prefix="/api/v1")
     app.register_blueprint(politicaloffice, url_prefix="/api/v1/")
     app.register_blueprint(user, url_prefix="/api/v2/auth")
