@@ -7,10 +7,12 @@ class OfficesModel(Database):
         self.name = name
         self.type = type
 
-    def save(self):
+    def save(self, name, type):
         office = Database().execute_query(
             ''' INSERT INTO offices(name, type)\
             VALUES('{}','{}')\
                 RETURNING name, type''' \
-                .format(self.name, self.type))
+                .format(name, type))
+        self.conn.commit()
+        self.cur.close()
         return office

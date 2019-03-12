@@ -13,60 +13,56 @@ class PartiesModel(Database):
         self.hqaddress = hqaddress
         self.logourl = logourl
 
-
-def save(self):
-    party = Database().execute_query(
-        ''' INSERT INTO parties(name, hqaddress, logourl)\
+    def save(self):
+        party = Database().execute_query(
+            ''' INSERT INTO parties(name, hqaddress, logourl)\
          VALUES('{}','{}','{}')\
          RETURNING name, hqaddress, logourl''' \
-            .format(self.name, self.hqaddress, self.logourl))
-    return party
+                .format(self.name, self.hqaddress, self.logourl))
+        return party
 
+    @staticmethod
+    def fetchParties():
+        Database().execute_query(
+            ''' SELECT * FROM parties''')
+        parties = Database().fetchall()
+        return json.dumps(parties, default=str)
 
-def fetchParties(self):
-    Database().execute_query(
-        ''' SELECT * FROM parties''')
-    parties = Database().fetchall()
-    return json.dumps(parties, default=str)
+    @staticmethod
+    def fetchParty(id):
+        Database().execute_query(
+            """ SELECT * FROM parties WHERE id={}""".format(id))
+        party = Database().fetchone()
+        return json.dumps(party, default=str)
 
+    @staticmethod
+    def fetchName(name):
+        Database().execute_query(
+            ''' SELECT * FROM parties WHERE name=%s''', (name,))
+        party = Database().fetchone()
+        return party
 
-def fetchParty(self, id):
-    Database().execute_query(
-        """ SELECT * FROM parties WHERE id={}""".format(id))
-    party = Database().fetchone()
-    return json.dumps(party, default=str)
+    def fetchhqaddress(self, hqaddress):
+        Database().execute_query(
+            ''' SELECT * FROM parties WHERE hqaddress=%s''', (hqaddress,))
+        party = Database().fetchone()
+        return party
 
+    def fetchLogourl(self, logourl):
+        Database().execute_query(''' SELECT * FROM parties WHERE logourl=%s''', (logourl,))
+        party = Database().fetchone()
+        return party
 
-def fetchName(self, name):
-    Database().execute_query(
-        ''' SELECT * FROM parties WHERE name=%s''', (name,))
-    party = Database().fetchone()
-    return party
+    @staticmethod
+    def delete(id):
+        Database().execute_query(
+            ''' DELETE FROM parties WHERE id=%s''', (id,))
 
-
-def fetchhqaddress(self, hqaddress):
-    Database().execute_query(
-        ''' SELECT * FROM parties WHERE hqaddress=%s''', (hqaddress,))
-    party = Database().fetchone()
-    return party
-
-
-def fetchLogourl(self, logourl):
-    Database().execute_query(''' SELECT * FROM parties WHERE logourl=%s''', (logourl,))
-    party = Database().fetchone()
-    return party
-
-
-def delete(self, id):
-    Database().execute_query(
-        ''' DELETE FROM parties WHERE id=%s''', (id,))
-
-
-def editParty(self):
-    Database().execute_query(
-        """UPDATE parties\
-        SET name='{}', hqaddress='{}', logourl='{}'\
-        WHERE party_id={} RETURNING name, hqaddress, logourl""" \
-            .format(self.party_id, self.name, self.hqaddress, self.logourl))
-    party = Database().fetchone()
-    return party
+    def editParty(self):
+        Database().execute_query(
+            """UPDATE parties\
+            SET name='{}', hqaddress='{}', logourl='{}'\
+            WHERE party_id={} RETURNING name, hqaddress, logourl""" \
+                .format(self.party_id, self.name, self.hqaddress, self.logourl))
+        party = Database().fetchone()
+        return party

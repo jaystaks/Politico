@@ -109,7 +109,7 @@ get_party = {
     "logourl": "https://www.w3schools.org"
 }
 
-reate_office = {
+create_office = {
     "category": "local",
     "name": "Presidential"
 }

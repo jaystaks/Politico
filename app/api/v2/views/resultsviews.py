@@ -8,7 +8,7 @@ result = Blueprint('results', __name__, url_prefix="/api/v2")
 
 @result.route("/office/<id>/result", methods=['GET'])
 @jwt_required
-def api_results(id):
+def e_results(id):
     if not isinstance(id, int):
         return make_response(jsonify({"status": 400, "error": "Invalid Office Id"}), 400)
     results = ResultsModel(id).get_results()

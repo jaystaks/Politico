@@ -5,6 +5,7 @@ from app.api.v2.models.partymodels import PartiesModel
 
 party = Blueprint('party', __name__, url_prefix='/api/v2')
 
+
 class PartyView():
     @party.route('/parties', methods=['POST'])
     @jwt_required
@@ -24,19 +25,19 @@ class PartyView():
     def fetchParties(self):
         return make_response(jsonify({
             "message": "Success Parties found",
-            "parties": json.loads(PartiesModel().fetchParty())
+            "parties": json.loads(PartiesModel().fetchParty(self))
         }), 200)
 
     @party.route('/parties/<int:id>', methods=['PATCH'])
     @jwt_required
-    def fetchSpecific(id):
+    def fetchParty(self, id):
         party = PartiesModel().get_party(id)
         party = json.loads(party)
         if party:
             return make_response(jsonify({
                 "message": "success party found",
                 "party": party
-                }), 200)
+            }), 200)
         return make_response(jsonify({
             "status": "Party not found"
         }), 404)
@@ -52,7 +53,7 @@ class PartyView():
         return raise_error(404, "party not found")
 
     @party.route('/parties/<int:id>/edit', methods=['PATCH'])
-    def edit_political_party(id):
+    def editParty(id):
         data = request.get_json()
         name = data['name']
         hqaddress = data['hqaddress']
@@ -60,12 +61,12 @@ class PartyView():
         party = PartiesModel().editParty(data, id)
         if party:
             return make_response(jsonify({
-            "status" : 200,
-            "message": "Success!! Party updated",
-            "Party": party
+                "status": 200,
+                "message": "Success!! Party updated",
+                "Party": party
             }), 200)
         else:
             return make_response(jsonify({
-            "status":404,
-            "error":"Party Not Found!",
+                "status": 404,
+                "error": "Party Not Found!",
             }), 404)

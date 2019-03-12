@@ -1,7 +1,7 @@
 from flask import Blueprint, make_response, jsonify, request
+from flask_jwt_extended import jwt_required
+
 from app.api.v2.models.officemodels import OfficesModel
-from app.api.v2.utils.base_view import BaseView
-from flask_jwt_extended import jwt_required, get_jwt_identity
 
 political_office_bp = Blueprint(
   'political_office_bp', __name__, url_prefix='/api/v2/')

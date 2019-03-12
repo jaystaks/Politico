@@ -1,7 +1,6 @@
 import datetime
 import json
 
-from IPython.utils.coloransi import value
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from app.api.db.database import Database
@@ -16,8 +15,7 @@ class Users():
                  password=None,
                  phonenumber=None,
                  passporturl=None,
-                 isadmin=None):
-        super().__init__()
+                 ):
         self.firstname = firstname
         self.lastname = lastname
         self.othername = othername
@@ -25,27 +23,28 @@ class Users():
         self.password = generate_password_hash(password)
         self.phonenumber = phonenumber
         self.passporturl = passporturl
-        self.isadmin = isadmin
 
     def registerUser(self):
         user = Database().execute_query(
             ''' INSERT INTO users(firstname,lastname,othername,email,password,phonenumber,passporturl)\
-                VALUES('{}','{}','{}','{}','{}','{}','{}')\
-                RETURNING firstname,lastname,othername,email,password,phonenumber,passporturl''' \
+                    VALUES('{}','{}','{}','{}','{}','{}','{}')\
+                    RETURNING firstname,lastname,othername,email,password,phonenumber,passporturl''' \
                 .format(self.firstname, self.lastname, self.othername, self.email, self.password, self.phonenumber,
                         self.passporturl))
+
         return user
 
-    def fetchUsers(self):
+    @staticmethod
+    def fetchUsers():
         user = Database().execute_query(''' SELECT * FROM users''')
         return json.dumps(user, default=str)
 
     def fetchEmail(self):
-        user = Database().execute_query('''SELECT * FROM users WHERE email= ''' + str(self.email), True)
+        user = Database().execute_query("SELECT * FROM users WHERE email= '" + str(self.email) + "'", True)
         return user
 
     def fetchPhonenumber(self):
-        user = Database().execute_query(''' SELECT * FROM users WHERE phonenumber=''' + str(self.phonenumber), True)
+        user = Database().execute_query(''' SELECT * FROM users WHERE phonenumber=''' + str(self.phonenumber))
         return user
 
     def fetchPassporturl(self):
@@ -59,16 +58,18 @@ class Users():
         return check_password_hash(self.password_hash, password)
 
     def update(self, data):
+        db = Database()
         for key, item in data.items():
             if key == 'password':
-                self.password = self.generate_hash(value)
+                self.password = self.generate_hash()
                 setattr(self, key, item)
                 self.modified_at = datetime.datetime.utcnow()
-        self.conn.commit()
+        db.conn.commit()
 
     def delete(self):
-        self.conn.delete(self)
-        self.conn.commit()
+        db = Database()
+        db.conn.delete(self)
+        db.conn.commit()
 
 
 '''    @staticmethod

@@ -6,11 +6,12 @@ from app.api.v2.utils.validations import is_valid, data_fields, is_alphabet, inv
 
 user = Blueprint('user', __name__, url_prefix='/api/v2/auth')
 
+
 class SignUp():
     """ A user can register their details"""
 
     @user.route("/signup", methods=['POST'])
-    def registerUser(self):
+    def registerUser():
         data = request.get_json()
         errors = {}
 
@@ -47,7 +48,6 @@ class SignUp():
                 if invalid :
                     errors[field] = invalid'''
 
-
         if errors != {}:
             return make_response(jsonify({
                 "status": 400,
@@ -57,16 +57,17 @@ class SignUp():
         Users(fields[0], fields[1], fields[2], fields[3], fields[4], fields[5], fields[6]).registerUser()
 
         return make_response(jsonify({
-        "status":201,
-        "message":"Success!! Account Created",
-        "user": data
-        }),201)
+            "status": 201,
+            "message": "Success!! Account Created",
+            "user": data
+        }), 201)
 
-class Login:
+
+class Login():
     """A user can sign in to their account."""
 
     @user.route("/login", methods=['POST'])
-    def loginUser(self):
+    def loginUser():
         data = request.get_json()
 
         email = data.get('email')
@@ -83,8 +84,8 @@ class Login:
             token = create_access_token(identity=email)
             return make_response(jsonify({
                 "status": 200,
-            "message": f"Login Successful {email}",
-            "Token": token
+                "message": f"Login Successful {email}",
+                "Token": token
             }), 200)
         return make_response(jsonify({
             "status": 404,

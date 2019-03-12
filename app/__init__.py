@@ -1,14 +1,14 @@
 from flask import Flask, jsonify
 from flask_jwt_extended import JWTManager
 
-from app.api.db.database import init_app
+from app.api.db.database import Database, init_app
 from app.api.v1.views.politicaloffices import politicaloffice
 from app.api.v1.views.politicalparty import politicalparty
+from app.api.v2.views.candidateviews import candidate
 from app.api.v2.views.officeviews import political_office_bp
 from app.api.v2.views.partyviews import party
-from app.api.v2.views.resultsview import result
-from app.api.v2.views.candidateview import candidate
 from app.api.v2.views.petitionviews import petition
+from app.api.v2.views.resultsviews import result
 from app.api.v2.views.userviews import user
 from app.api.v2.views.votesview import vote
 from instance.config import appConfig
