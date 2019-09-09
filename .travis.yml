@@ -17,8 +17,8 @@ env:
   - DATABASE_URL="postgresql://localhost/test_db"
   - PGPORT=5432
 
-#script:
-#  - pytest --cov=app test/
+script:
+  - pytest --cov=app test/
 
 after_success:
 - coveralls
