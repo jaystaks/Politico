@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from flask_jwt_extended import JWTManager
+#from flask_jwt_extended import JWTManager
 
 from app.api.db.database import Database, init_app
 from app.api.v1.views.politicaloffices import politicaloffice
@@ -64,6 +64,6 @@ def politico(config_name):
     app.register_blueprint(candidate, url_prefix="/api/v2")
 
     init_app(app)
-    JWTManager(app)
+    #JWTManager(app)
 
     return app
