@@ -30,7 +30,7 @@ jedi==0.15.1
 Jinja2==2.10.1
 jwt==0.6.1
 lazy-object-proxy==1.4.2
-Mako==1.1.0
+Mako==1.2.2
 MarkupSafe==1.1.1
 mccabe==0.6.1
 more-itertools==7.2.0
